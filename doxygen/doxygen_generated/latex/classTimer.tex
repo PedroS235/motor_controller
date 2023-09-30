@@ -1,0 +1,135 @@
+\hypertarget{classTimer}{}\doxysection{Timer Class Reference}
+\label{classTimer}\index{Timer@{Timer}}
+
+
+A simple timer class for measuring elapsed time intervals.  
+
+
+
+
+{\ttfamily \#include $<$timer.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTimer_a56d360bc1050bcc43e24e09050e8ba67}{Timer}} (unsigned long interval, bool \mbox{\hyperlink{classTimer_a3a8b5272198d029779dc9302a54305a8}{start}}=true, bool auto\+Reset=true)
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classTimer}{Timer}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTimer_a3a8b5272198d029779dc9302a54305a8}{start}} ()
+\begin{DoxyCompactList}\small\item\em Start the timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTimer_a63f0eb44b27402196590a03781515dba}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Stop the timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTimer_a9020542d73357a4eef512eefaf57524b}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Reset the timer to its initial state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTimer_ab6018a37c40dcadc373cc85f8c507da6}{set\+\_\+interval}} (unsigned long interval)
+\begin{DoxyCompactList}\small\item\em Set the time interval for the timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTimer_aa7551140058e81e350f8f3d0444ac392}{set\+\_\+auto\+\_\+reset}} (bool auto\+Reset)
+\begin{DoxyCompactList}\small\item\em Set whether the timer should automatically reset after each interval. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTimer_a070840f526703fb00b21afc45cbe4a8e}{has\+\_\+elapsed}} ()
+\begin{DoxyCompactList}\small\item\em Check if the timer has elapsed the specified interval. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple timer class for measuring elapsed time intervals. 
+
+The \mbox{\hyperlink{classTimer}{Timer}} class allows you to create and manage timers to measure elapsed time intervals. It can be useful in various Arduino projects and other embedded systems applications. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTimer_a56d360bc1050bcc43e24e09050e8ba67}\label{classTimer_a56d360bc1050bcc43e24e09050e8ba67}} 
+\index{Timer@{Timer}!Timer@{Timer}}
+\index{Timer@{Timer}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{Timer()}{Timer()}}
+{\footnotesize\ttfamily Timer\+::\+Timer (\begin{DoxyParamCaption}\item[{unsigned long}]{interval,  }\item[{bool}]{start = {\ttfamily true},  }\item[{bool}]{auto\+Reset = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \mbox{\hyperlink{classTimer}{Timer}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interval} & The time interval (in milliseconds) for the timer. \\
+\hline
+{\em auto\+Reset} & If true, the timer automatically resets after each interval. If false, you need to manually reset the timer using the \mbox{\hyperlink{classTimer_a9020542d73357a4eef512eefaf57524b}{reset()}} method. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTimer_a070840f526703fb00b21afc45cbe4a8e}\label{classTimer_a070840f526703fb00b21afc45cbe4a8e}} 
+\index{Timer@{Timer}!has\_elapsed@{has\_elapsed}}
+\index{has\_elapsed@{has\_elapsed}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{has\_elapsed()}{has\_elapsed()}}
+{\footnotesize\ttfamily bool Timer\+::has\+\_\+elapsed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if the timer has elapsed the specified interval. 
+
+\begin{DoxyReturn}{Returns}
+True if the timer has elapsed, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTimer_a9020542d73357a4eef512eefaf57524b}\label{classTimer_a9020542d73357a4eef512eefaf57524b}} 
+\index{Timer@{Timer}!reset@{reset}}
+\index{reset@{reset}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Timer\+::reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reset the timer to its initial state. 
+
+If auto-\/reset is disabled, you can use this method to manually reset the timer. \mbox{\Hypertarget{classTimer_aa7551140058e81e350f8f3d0444ac392}\label{classTimer_aa7551140058e81e350f8f3d0444ac392}} 
+\index{Timer@{Timer}!set\_auto\_reset@{set\_auto\_reset}}
+\index{set\_auto\_reset@{set\_auto\_reset}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{set\_auto\_reset()}{set\_auto\_reset()}}
+{\footnotesize\ttfamily void Timer\+::set\+\_\+auto\+\_\+reset (\begin{DoxyParamCaption}\item[{bool}]{auto\+Reset }\end{DoxyParamCaption})}
+
+
+
+Set whether the timer should automatically reset after each interval. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em auto\+Reset} & If true, the timer will auto-\/reset; if false, manual reset is required. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTimer_ab6018a37c40dcadc373cc85f8c507da6}\label{classTimer_ab6018a37c40dcadc373cc85f8c507da6}} 
+\index{Timer@{Timer}!set\_interval@{set\_interval}}
+\index{set\_interval@{set\_interval}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{set\_interval()}{set\_interval()}}
+{\footnotesize\ttfamily void Timer\+::set\+\_\+interval (\begin{DoxyParamCaption}\item[{unsigned long}]{interval }\end{DoxyParamCaption})}
+
+
+
+Set the time interval for the timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interval} & The new time interval (in milliseconds) for the timer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTimer_a3a8b5272198d029779dc9302a54305a8}\label{classTimer_a3a8b5272198d029779dc9302a54305a8}} 
+\index{Timer@{Timer}!start@{start}}
+\index{start@{start}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Timer\+::start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Start the timer. 
+
+This method starts the timer. If the timer is already running, this method does nothing. \mbox{\Hypertarget{classTimer_a63f0eb44b27402196590a03781515dba}\label{classTimer_a63f0eb44b27402196590a03781515dba}} 
+\index{Timer@{Timer}!stop@{stop}}
+\index{stop@{stop}!Timer@{Timer}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void Timer\+::stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Stop the timer. 
+
+This method stops the timer. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/pedros235/projects/perceptron\+\_\+bot/low\+\_\+level/motor\+\_\+controller/include/timer.\+hpp\item 
+/home/pedros235/projects/perceptron\+\_\+bot/low\+\_\+level/motor\+\_\+controller/src/timer.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,157 @@
+\hypertarget{classMotorDriver}{}\doxysection{Motor\+Driver Class Reference}
+\label{classMotorDriver}\index{MotorDriver@{MotorDriver}}
+
+
+A class to control a motor with optional closed-\/loop feedback using an encoder and \mbox{\hyperlink{classPID}{PID}} controller.  
+
+
+
+
+{\ttfamily \#include $<$motor\+\_\+driver.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMotorDriver_a0d2a8e8b35597161921c1c86cddf92d8}{Motor\+Driver}} (uint8\+\_\+t pin\+\_\+en, uint8\+\_\+t pin\+\_\+in1, uint8\+\_\+t pin\+\_\+in2, bool reverse=false)
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classMotorDriver}{Motor\+Driver}} class (Open-\/\+Loop mode). No ability switch to closed-\/loop mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMotorDriver_aea5c132553a90ad509446f3dc68802f8}{Motor\+Driver}} (uint8\+\_\+t pin\+\_\+en, uint8\+\_\+t pin\+\_\+in1, uint8\+\_\+t pin\+\_\+in2, \mbox{\hyperlink{classEncoder}{Encoder}} $\ast$encoder, float wheel\+\_\+radius\+\_\+, uint16\+\_\+t ticks\+\_\+per\+\_\+rev, bool reverse=false)
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classMotorDriver}{Motor\+Driver}} class (Closed-\/\+Loop mode). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMotorDriver_a91e81ae85c35a5e1035909e5ccec95cf}{set\+\_\+pwm}} (int pwm, Motor\+Mode mode=Motor\+Mode\+::\+OPEN\+\_\+\+LOOP)
+\begin{DoxyCompactList}\small\item\em Set the PWM value and operation mode for motor control. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMotorDriver_a079a1bdacd8846e90a417f4eb3c97552}\label{classMotorDriver_a079a1bdacd8846e90a417f4eb3c97552}} 
+void \mbox{\hyperlink{classMotorDriver_a079a1bdacd8846e90a417f4eb3c97552}{run}} (void)
+\begin{DoxyCompactList}\small\item\em Run the motor control loop. Needs to be called on every iteration of the main loop. For better performance, use a timer to call this function at a fixed frequency like 20Hz. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMotorDriver_a23cce2cf9edad83795dd14d36b63eaf5}\label{classMotorDriver_a23cce2cf9edad83795dd14d36b63eaf5}} 
+void \mbox{\hyperlink{classMotorDriver_a23cce2cf9edad83795dd14d36b63eaf5}{print\+\_\+status}} (void)
+\begin{DoxyCompactList}\small\item\em Print the current status and data of the motor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMotorDriver_a27b02e38a09056bbcd00a8fd803dad11}{set\+\_\+velocity}} (float velocity)
+\begin{DoxyCompactList}\small\item\em Set the desired linear velocity of the motor (Closed-\/\+Loop mode). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMotorDriver_a9ae3a9e33d5b54342d0e88b46731cf00}{get\+\_\+motor\+\_\+data}} (\mbox{\hyperlink{structMotorData}{Motor\+Data}} \&motor\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Get motor-\/related data such as velocity, angular velocity, distance, angle, and RPM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMotorDriver_aa29e0ce7b70b0ec6ee63a4dc1dc6c2a9}{set\+\_\+mode}} (Motor\+Mode mode)
+\begin{DoxyCompactList}\small\item\em Set the operation mode of the motor (Open-\/\+Loop or Closed-\/\+Loop). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to control a motor with optional closed-\/loop feedback using an encoder and \mbox{\hyperlink{classPID}{PID}} controller. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMotorDriver_a0d2a8e8b35597161921c1c86cddf92d8}\label{classMotorDriver_a0d2a8e8b35597161921c1c86cddf92d8}} 
+\index{MotorDriver@{MotorDriver}!MotorDriver@{MotorDriver}}
+\index{MotorDriver@{MotorDriver}!MotorDriver@{MotorDriver}}
+\doxysubsubsection{\texorpdfstring{MotorDriver()}{MotorDriver()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Motor\+Driver\+::\+Motor\+Driver (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin\+\_\+en,  }\item[{uint8\+\_\+t}]{pin\+\_\+in1,  }\item[{uint8\+\_\+t}]{pin\+\_\+in2,  }\item[{bool}]{reverse = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \mbox{\hyperlink{classMotorDriver}{Motor\+Driver}} class (Open-\/\+Loop mode). No ability switch to closed-\/loop mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin\+\_\+en} & The motor enable pin. \\
+\hline
+{\em pin\+\_\+in1} & The motor input 1 pin. \\
+\hline
+{\em pin\+\_\+in2} & The motor input 2 pin. \\
+\hline
+{\em reverse} & Set to true to reverse motor direction (optional, default is false). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMotorDriver_aea5c132553a90ad509446f3dc68802f8}\label{classMotorDriver_aea5c132553a90ad509446f3dc68802f8}} 
+\index{MotorDriver@{MotorDriver}!MotorDriver@{MotorDriver}}
+\index{MotorDriver@{MotorDriver}!MotorDriver@{MotorDriver}}
+\doxysubsubsection{\texorpdfstring{MotorDriver()}{MotorDriver()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Motor\+Driver\+::\+Motor\+Driver (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin\+\_\+en,  }\item[{uint8\+\_\+t}]{pin\+\_\+in1,  }\item[{uint8\+\_\+t}]{pin\+\_\+in2,  }\item[{\mbox{\hyperlink{classEncoder}{Encoder}} $\ast$}]{encoder,  }\item[{float}]{wheel\+\_\+radius\+\_\+,  }\item[{uint16\+\_\+t}]{ticks\+\_\+per\+\_\+rev,  }\item[{bool}]{reverse = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \mbox{\hyperlink{classMotorDriver}{Motor\+Driver}} class (Closed-\/\+Loop mode). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin\+\_\+en} & The motor enable pin. \\
+\hline
+{\em pin\+\_\+in1} & The motor input 1 pin. \\
+\hline
+{\em pin\+\_\+in2} & The motor input 2 pin. \\
+\hline
+{\em encoder} & Pointer to an \mbox{\hyperlink{classEncoder}{Encoder}} object for closed-\/loop control. \\
+\hline
+{\em wheel\+\_\+radius\+\_\+} & The radius of the wheel connected to the motor (in meters). \\
+\hline
+{\em ticks\+\_\+per\+\_\+rev} & The number of encoder ticks per revolution \\
+\hline
+{\em reverse} & Set to true to reverse motor direction (optional, default is false). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMotorDriver_a9ae3a9e33d5b54342d0e88b46731cf00}\label{classMotorDriver_a9ae3a9e33d5b54342d0e88b46731cf00}} 
+\index{MotorDriver@{MotorDriver}!get\_motor\_data@{get\_motor\_data}}
+\index{get\_motor\_data@{get\_motor\_data}!MotorDriver@{MotorDriver}}
+\doxysubsubsection{\texorpdfstring{get\_motor\_data()}{get\_motor\_data()}}
+{\footnotesize\ttfamily void Motor\+Driver\+::get\+\_\+motor\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMotorData}{Motor\+Data}} \&}]{motor\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Get motor-\/related data such as velocity, angular velocity, distance, angle, and RPM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor\+\_\+data} & Reference to a \mbox{\hyperlink{structMotorData}{Motor\+Data}} structure to store the data. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMotorDriver_aa29e0ce7b70b0ec6ee63a4dc1dc6c2a9}\label{classMotorDriver_aa29e0ce7b70b0ec6ee63a4dc1dc6c2a9}} 
+\index{MotorDriver@{MotorDriver}!set\_mode@{set\_mode}}
+\index{set\_mode@{set\_mode}!MotorDriver@{MotorDriver}}
+\doxysubsubsection{\texorpdfstring{set\_mode()}{set\_mode()}}
+{\footnotesize\ttfamily void Motor\+Driver\+::set\+\_\+mode (\begin{DoxyParamCaption}\item[{Motor\+Mode}]{mode }\end{DoxyParamCaption})}
+
+
+
+Set the operation mode of the motor (Open-\/\+Loop or Closed-\/\+Loop). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The motor operation mode. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMotorDriver_a91e81ae85c35a5e1035909e5ccec95cf}\label{classMotorDriver_a91e81ae85c35a5e1035909e5ccec95cf}} 
+\index{MotorDriver@{MotorDriver}!set\_pwm@{set\_pwm}}
+\index{set\_pwm@{set\_pwm}!MotorDriver@{MotorDriver}}
+\doxysubsubsection{\texorpdfstring{set\_pwm()}{set\_pwm()}}
+{\footnotesize\ttfamily void Motor\+Driver\+::set\+\_\+pwm (\begin{DoxyParamCaption}\item[{int}]{pwm,  }\item[{Motor\+Mode}]{mode = {\ttfamily MotorMode\+:\+:OPEN\+\_\+LOOP} }\end{DoxyParamCaption})}
+
+
+
+Set the PWM value and operation mode for motor control. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pwm} & The PWM value (-\/255-\/255). Negative values correspond to CCW rotation, \\
+\hline
+{\em mode} & The motor operation mode (Open-\/\+Loop or Closed-\/\+Loop). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMotorDriver_a27b02e38a09056bbcd00a8fd803dad11}\label{classMotorDriver_a27b02e38a09056bbcd00a8fd803dad11}} 
+\index{MotorDriver@{MotorDriver}!set\_velocity@{set\_velocity}}
+\index{set\_velocity@{set\_velocity}!MotorDriver@{MotorDriver}}
+\doxysubsubsection{\texorpdfstring{set\_velocity()}{set\_velocity()}}
+{\footnotesize\ttfamily void Motor\+Driver\+::set\+\_\+velocity (\begin{DoxyParamCaption}\item[{float}]{velocity }\end{DoxyParamCaption})}
+
+
+
+Set the desired linear velocity of the motor (Closed-\/\+Loop mode). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em velocity} & The desired linear velocity (in meters per second). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/pedros235/projects/perceptron\+\_\+bot/low\+\_\+level/motor\+\_\+controller/include/motor\+\_\+driver.\+hpp\item 
+/home/pedros235/projects/perceptron\+\_\+bot/low\+\_\+level/motor\+\_\+controller/src/motor\+\_\+driver.\+cpp\end{DoxyCompactItemize}
