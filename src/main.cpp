@@ -1,19 +1,45 @@
 #include <Arduino.h>
 
-// This is a blynk example to show everyting is working
+#include "configuration.hpp"
+#include "motor_driver.hpp"
+#include "timer.hpp"
+
+Encoder encoder(GPIO_MOTOR_LEFT_ENCODER_A, GPIO_MOTOR_LEFT_ENCODER_B, true);
+MotorDriver motor(GPIO_MOTOR_LEFT_EN,
+                  GPIO_MOTOR_LEFT_IN1,
+                  GPIO_MOTOR_LEFT_IN2,
+                  &encoder,
+                  WHEEL_RADIUS,
+                  ENCODER_TICKS_PER_REVOLUTION,
+                  true);
+Timer timer(50);
+
+void encoder_isr(void) { encoder.tick_isr(); }
 
 /**
  * The setup function is called once at startup of the sketch
  */
-void setup(void) { pinMode(LED_BUILTIN, OUTPUT); }
+void setup(void) {
+    Serial.begin(9600);
+    Serial.println("Start");
+    attachInterrupt(
+        digitalPinToInterrupt(GPIO_MOTOR_LEFT_ENCODER_A), encoder_isr, RISING);
+    motor.set_velocity(0.5);
+}
 
 /**
  * The loop function is called in an endless loop
  */
 void loop(void) {
-
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(1000);
-  digitalWrite(LED_BUILTIN, LOW);
-  delay(1000);
+    if (timer.has_elapsed()) {
+        motor.run();
+        MotorData data;
+        motor.get_motor_data(data);
+        Serial.print("Setpoint:");
+        Serial.print(0.5);
+        Serial.print(",");
+        Serial.print("velocity:");
+        Serial.println(data.velocity);
+        motor.print_status();
+    }
 }
