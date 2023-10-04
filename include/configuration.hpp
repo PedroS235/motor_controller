@@ -30,9 +30,9 @@
 #define ENCODER_TICKS_PER_REVOLUTION 490
 
 // PID gains
-#define MOTOR_DRIVER_PID_KP 500
-#define MOTOR_DRIVER_PID_KI 130.0
-#define MOTOR_DRIVER_PID_KD 50.0
+#define MOTOR_DRIVER_PID_KP 1000
+#define MOTOR_DRIVER_PID_KI 110.0
+#define MOTOR_DRIVER_PID_KD 0.0
 
 #define MOTOR_RUN_FREQUENCY 20  // Motor run frequency (in Hz)
 
