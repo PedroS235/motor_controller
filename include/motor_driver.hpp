@@ -110,6 +110,17 @@ class MotorDriver {
      */
     void set_mode(MotorMode mode);
 
+    /**
+     * @brief Get the wheel radius of the wheel attached to the motor.
+     */
+    float get_wheel_radius();
+
+    /**
+     * @brief Get the number of encoder ticks per revolution.
+     * @return The number of encoder ticks per revolution.
+     */
+    uint16_t get_ticks_per_rev();
+
    private:
     /**
      * @brief Send the PWM signal to control the motor (L298N Driver).
