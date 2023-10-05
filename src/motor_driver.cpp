@@ -89,7 +89,7 @@ void MotorDriver::set_mode(MotorMode mode) {
 }
 
 void MotorDriver::set_velocity(float velocity) {
-    // TODO: Add velocity bounds
+    bound(velocity, -MOTOR_MAX_VELOCITY, MOTOR_MAX_VELOCITY);
     if (encoder_ == nullptr) {
         return;
     }
