@@ -28,6 +28,7 @@
 // Motor and encoder configuration settings.
 #define WHEEL_RADIUS 0.0339  // Wheel radius in meters
 #define ENCODER_TICKS_PER_REVOLUTION 490
+#define DIST_BETWEEN_WHEELS 0.20  // Distance between wheels in meters
 
 // PID gains
 #define MOTOR_DRIVER_PID_KP 1000
