@@ -9,6 +9,7 @@ MotorDriver::MotorDriver(uint8_t pin_en, uint8_t pin_in1, uint8_t pin_in2, bool 
       pin_in2_(pin_in2),
       reverse_(reverse),
       pid_(MOTOR_DRIVER_PID_KP, MOTOR_DRIVER_PID_KI, MOTOR_DRIVER_PID_KD) {
+    pid_.set_output_limits(-255, 255);
     init_pins_();
     motor_mode_ = MotorMode::OPEN_LOOP;
 }
@@ -28,6 +29,7 @@ MotorDriver::MotorDriver(uint8_t pin_en,
       reverse_(reverse),
       encoder_(encoder),
       pid_(MOTOR_DRIVER_PID_KP, MOTOR_DRIVER_PID_KI, MOTOR_DRIVER_PID_KD) {
+    pid_.set_output_limits(-255, 255);
     init_pins_();
     motor_mode_ = MotorMode::CLOSED_LOOP;
     encoder_->reset();
@@ -87,6 +89,7 @@ void MotorDriver::set_mode(MotorMode mode) {
 }
 
 void MotorDriver::set_velocity(float velocity) {
+    // TODO: Add velocity bounds
     if (encoder_ == nullptr) {
         return;
     }
@@ -95,6 +98,10 @@ void MotorDriver::set_velocity(float velocity) {
 }
 
 void MotorDriver::get_motor_data(MotorData &motor_data) { motor_data = motor_data_; }
+
+float MotorDriver::get_wheel_radius() { return wheel_radius_; }
+
+uint16_t MotorDriver::get_ticks_per_rev() { return ticks_per_rev_; }
 
 void MotorDriver::send_pwm() { analogWrite(pin_en_, pwm_); }
 
