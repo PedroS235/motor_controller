@@ -10,7 +10,7 @@
 typedef struct {
     float x;
     float y;
-    float w;
+    float theta;
 } Pose;
 
 typedef struct {
