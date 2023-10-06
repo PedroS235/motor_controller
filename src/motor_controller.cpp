@@ -16,12 +16,13 @@ MotorController::MotorController(MotorDriver *left_motor,
 
 void MotorController::set_cmd_vel(CmdVel cmd_vel) { cmd_vel_ = cmd_vel; }
 
-void MotorController::get_pose(Pose *odometry) { *odometry = pose_; }
+void MotorController::get_pose(Pose *pose) { *pose = pose_; }
 
 void MotorController::reset() {
     left_motor_->reset();
     right_motor_->reset();
     pose_ = {0.0, 0.0, 0.0};
+    cmd_vel_ = {0.0, 0.0};
 }
 
 void MotorController::run() {
@@ -54,9 +55,9 @@ void MotorController::compute_pose_() {
     right_motor_->get_motor_data(right_motor_data);
     float d_c = (left_motor_data.distance + right_motor_data.distance) / 2.0;
 
-    pose_.x = d_c * cos(pose_.w);
-    pose_.y = d_c * sin(pose_.w);
-    pose_.w =
+    pose_.x = d_c * cos(pose_.theta);
+    pose_.y = d_c * sin(pose_.theta);
+    pose_.theta =
         (right_motor_data.distance - left_motor_data.distance) / dist_between_wheels_;
 }
 
@@ -66,5 +67,5 @@ void MotorController::print_pose() {
     Serial.print(", ");
     Serial.print(pose_.y);
     Serial.print(", ");
-    Serial.println(pose_.w);
+    Serial.println(pose_.theta);
 }

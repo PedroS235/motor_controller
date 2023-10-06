@@ -23,7 +23,7 @@ class MotorController {
     MotorController(MotorDriver *left_motor,
                     MotorDriver *right_motor,
                     float dist_between_wheels);
-    void get_pose(Pose *odometry);
+    void get_pose(Pose *pose);
     void set_cmd_vel(CmdVel cmd_vel);
     void reset(void);
     void run(void);
