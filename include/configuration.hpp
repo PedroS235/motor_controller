@@ -1,7 +1,7 @@
 #ifndef CONFIGURATION_HPP
 #define CONFIGURATION_HPP
 
-#define VERSION "1.1.2"
+#define VERSION "1.1.3"
 
 // -----------------------------------------------------------------------------
 // ---------------------------| Motor GPIO Pins |-------------------------------
