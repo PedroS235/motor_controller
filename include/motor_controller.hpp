@@ -25,8 +25,9 @@ class MotorController {
                     float dist_between_wheels);
     void get_pose(Pose *odometry);
     void set_cmd_vel(CmdVel cmd_vel);
-    void run();
-    void print_pose();
+    void reset(void);
+    void run(void);
+    void print_pose(void);
 
    private:
     void compute_pose_();

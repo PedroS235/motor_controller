@@ -18,6 +18,12 @@ void MotorController::set_cmd_vel(CmdVel cmd_vel) { cmd_vel_ = cmd_vel; }
 
 void MotorController::get_pose(Pose *odometry) { *odometry = pose_; }
 
+void MotorController::reset() {
+    left_motor_->reset();
+    right_motor_->reset();
+    pose_ = {0.0, 0.0, 0.0};
+}
+
 void MotorController::run() {
     if (motor_update_timer_.has_elapsed()) {
         compute_pose_();

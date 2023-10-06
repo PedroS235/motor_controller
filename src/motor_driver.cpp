@@ -43,6 +43,17 @@ void MotorDriver::init_pins_(void) {
     pinMode(pin_in2_, OUTPUT);
 }
 
+void MotorDriver::reset() {
+    if (encoder_ == nullptr) {
+        return;
+    }
+    encoder_->reset();
+    last_encoder_reading_ = encoder_->get_ticks();
+    last_data_reading_time_ = millis();
+    set_pwm(0);
+    pid_.reset();
+}
+
 void MotorDriver::set_pwm(int pwm, MotorMode mode) {
     set_mode(mode);
 
