@@ -16,7 +16,7 @@ MotorController::MotorController(MotorDriver *left_motor,
 
 void MotorController::set_cmd_vel(CmdVel cmd_vel) { cmd_vel_ = cmd_vel; }
 
-void MotorController::get_pose(Pose *pose) { *pose = pose_; }
+void MotorController::get_pose(Pose &pose) { pose = pose_; }
 
 void MotorController::reset() {
     left_motor_->reset();
