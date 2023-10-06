@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['pid_48',['PID',['../classPID.html',1,'']]],
-  ['pid_5fgains_5ft_49',['pid_gains_t',['../structpid__gains__t.html',1,'']]]
+  ['output_5flimits_5ft_61',['output_limits_t',['../structoutput__limits__t.html',1,'']]]
 ];

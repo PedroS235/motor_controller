@@ -1,0 +1,93 @@
+\hypertarget{classMotorController}{}\doxysection{Motor\+Controller Class Reference}
+\label{classMotorController}\index{MotorController@{MotorController}}
+
+
+A class for controlling two motors and computing the robot\textquotesingle{}s pose.  
+
+
+
+
+{\ttfamily \#include $<$motor\+\_\+controller.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMotorController_ab5cd97c5a8acb779ed96a92383ffacdb}{Motor\+Controller}} (\mbox{\hyperlink{classMotorDriver}{Motor\+Driver}} $\ast$left\+\_\+motor, \mbox{\hyperlink{classMotorDriver}{Motor\+Driver}} $\ast$right\+\_\+motor, float dist\+\_\+between\+\_\+wheels)
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classMotorController}{Motor\+Controller}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMotorController_ad802cb0db3352121065b47a7e0208a90}{get\+\_\+pose}} (\mbox{\hyperlink{structPose}{Pose}} \&pose)
+\begin{DoxyCompactList}\small\item\em Get the current pose of the robot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMotorController_a9e5caf74d646e06a5c069dff9dcab332}{set\+\_\+cmd\+\_\+vel}} (\mbox{\hyperlink{structCmdVel}{Cmd\+Vel}} cmd\+\_\+vel)
+\begin{DoxyCompactList}\small\item\em Set the commanded velocity for the robot. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMotorController_aef5832dcfa4eeb4c97cd9c98ee0eddfa}\label{classMotorController_aef5832dcfa4eeb4c97cd9c98ee0eddfa}} 
+void \mbox{\hyperlink{classMotorController_aef5832dcfa4eeb4c97cd9c98ee0eddfa}{reset}} (void)
+\begin{DoxyCompactList}\small\item\em Reset the motor controller to its initial state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMotorController_a7209cb7c62726e8e15b67885a3a6a2a0}\label{classMotorController_a7209cb7c62726e8e15b67885a3a6a2a0}} 
+void \mbox{\hyperlink{classMotorController_a7209cb7c62726e8e15b67885a3a6a2a0}{run}} (void)
+\begin{DoxyCompactList}\small\item\em Run the motor controller\textquotesingle{}s control loop. This function should be called on every iteration of the main loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMotorController_a74451a9c013f4c3d7903560ff07e9312}\label{classMotorController_a74451a9c013f4c3d7903560ff07e9312}} 
+void \mbox{\hyperlink{classMotorController_a74451a9c013f4c3d7903560ff07e9312}{print\+\_\+pose}} (void)
+\begin{DoxyCompactList}\small\item\em Print the current pose of the robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for controlling two motors and computing the robot\textquotesingle{}s pose. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMotorController_ab5cd97c5a8acb779ed96a92383ffacdb}\label{classMotorController_ab5cd97c5a8acb779ed96a92383ffacdb}} 
+\index{MotorController@{MotorController}!MotorController@{MotorController}}
+\index{MotorController@{MotorController}!MotorController@{MotorController}}
+\doxysubsubsection{\texorpdfstring{MotorController()}{MotorController()}}
+{\footnotesize\ttfamily Motor\+Controller\+::\+Motor\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMotorDriver}{Motor\+Driver}} $\ast$}]{left\+\_\+motor,  }\item[{\mbox{\hyperlink{classMotorDriver}{Motor\+Driver}} $\ast$}]{right\+\_\+motor,  }\item[{float}]{dist\+\_\+between\+\_\+wheels }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \mbox{\hyperlink{classMotorController}{Motor\+Controller}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+\_\+motor} & A pointer to the left motor driver. \\
+\hline
+{\em right\+\_\+motor} & A pointer to the right motor driver. \\
+\hline
+{\em dist\+\_\+between\+\_\+wheels} & The distance between the robot\textquotesingle{}s two wheels. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMotorController_ad802cb0db3352121065b47a7e0208a90}\label{classMotorController_ad802cb0db3352121065b47a7e0208a90}} 
+\index{MotorController@{MotorController}!get\_pose@{get\_pose}}
+\index{get\_pose@{get\_pose}!MotorController@{MotorController}}
+\doxysubsubsection{\texorpdfstring{get\_pose()}{get\_pose()}}
+{\footnotesize\ttfamily void Motor\+Controller\+::get\+\_\+pose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPose}{Pose}} \&}]{pose }\end{DoxyParamCaption})}
+
+
+
+Get the current pose of the robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose} & Pointer to a \mbox{\hyperlink{structPose}{Pose}} structure to store the current pose. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMotorController_a9e5caf74d646e06a5c069dff9dcab332}\label{classMotorController_a9e5caf74d646e06a5c069dff9dcab332}} 
+\index{MotorController@{MotorController}!set\_cmd\_vel@{set\_cmd\_vel}}
+\index{set\_cmd\_vel@{set\_cmd\_vel}!MotorController@{MotorController}}
+\doxysubsubsection{\texorpdfstring{set\_cmd\_vel()}{set\_cmd\_vel()}}
+{\footnotesize\ttfamily void Motor\+Controller\+::set\+\_\+cmd\+\_\+vel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCmdVel}{Cmd\+Vel}}}]{cmd\+\_\+vel }\end{DoxyParamCaption})}
+
+
+
+Set the commanded velocity for the robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd\+\_\+vel} & The desired linear and angular velocity. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/pedros235/projects/perceptron\+\_\+bot/low\+\_\+level/motor\+\_\+controller/include/motor\+\_\+controller.\+hpp\item 
+/home/pedros235/projects/perceptron\+\_\+bot/low\+\_\+level/motor\+\_\+controller/src/motor\+\_\+controller.\+cpp\end{DoxyCompactItemize}
