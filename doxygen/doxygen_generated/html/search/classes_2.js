@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['output_5flimits_5ft_47',['output_limits_t',['../structoutput__limits__t.html',1,'']]]
+  ['motorcontroller_58',['MotorController',['../classMotorController.html',1,'']]],
+  ['motordata_59',['MotorData',['../structMotorData.html',1,'']]],
+  ['motordriver_60',['MotorDriver',['../classMotorDriver.html',1,'']]]
 ];

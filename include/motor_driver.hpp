@@ -73,13 +73,6 @@ class MotorDriver {
                 bool reverse = false);
 
     /**
-     * @brief Set the PWM value and operation mode for motor control.
-     * @param pwm The PWM value (-255-255). Negative values correspond to CCW rotation,
-     * @param mode The motor operation mode (Open-Loop or Closed-Loop).
-     */
-    void set_pwm(int pwm, MotorMode mode = MotorMode::OPEN_LOOP);
-
-    /**
      * @brief Run the motor control loop. Needs to be called on every iteration of the
      * main loop. For better performance, use a timer to call this function at a fixed
      * frequency like 20Hz.
@@ -92,10 +85,29 @@ class MotorDriver {
     void print_status(void);
 
     /**
+     * @brief Reset the motor-related data such as velocity, angular velocity, distance,
+     * angle, and RPM.
+     */
+    void reset(void);
+
+    /**
      * @brief Set the desired linear velocity of the motor (Closed-Loop mode).
      * @param velocity The desired linear velocity (in meters per second).
      */
     void set_velocity(float velocity);
+
+    /**
+     * @brief Set the PWM value and operation mode for motor control.
+     * @param pwm The PWM value (-255-255). Negative values correspond to CCW rotation,
+     * @param mode The motor operation mode (Open-Loop or Closed-Loop).
+     */
+    void set_pwm(int pwm, MotorMode mode = MotorMode::OPEN_LOOP);
+
+    /**
+     * @brief Set the operation mode of the motor (Open-Loop or Closed-Loop).
+     * @param mode The motor operation mode.
+     */
+    void set_mode(MotorMode mode);
 
     /**
      * @brief Get motor-related data such as velocity, angular velocity, distance,
@@ -105,10 +117,15 @@ class MotorDriver {
     void get_motor_data(MotorData &motor_data);
 
     /**
-     * @brief Set the operation mode of the motor (Open-Loop or Closed-Loop).
-     * @param mode The motor operation mode.
+     * @brief Get the wheel radius of the wheel attached to the motor.
      */
-    void set_mode(MotorMode mode);
+    float get_wheel_radius();
+
+    /**
+     * @brief Get the number of encoder ticks per revolution.
+     * @return The number of encoder ticks per revolution.
+     */
+    uint16_t get_ticks_per_rev();
 
    private:
     /**
