@@ -67,4 +67,20 @@ inline void bound(uint8_t &value, uint8_t min, uint8_t max) {
     }
 }
 
+/**
+ * @brief Transform Hz to milliseconds.
+ * @param hz The frequency in Hz.
+ * @return The period in milliseconds.
+ *
+ */
+inline unsigned long hz_to_ms(uint8_t hz) { return 1000 / hz; }
+
+/**
+ * @brief Transform Hz to secons.
+ * @param hz The frequency in Hz.
+ * @return The period in seconds.
+ *
+ */
+inline unsigned long hz_to_ms(uint8_t hz) { return 1 / hz; }
+
 #endif  // !UTILS_HPP
