@@ -81,6 +81,6 @@ inline unsigned long hz_to_ms(uint8_t hz) { return 1000 / hz; }
  * @return The period in seconds.
  *
  */
-inline unsigned long hz_to_ms(uint8_t hz) { return 1 / hz; }
+inline unsigned long hz_to_s(uint8_t hz) { return 1 / hz; }
 
 #endif  // !UTILS_HPP
