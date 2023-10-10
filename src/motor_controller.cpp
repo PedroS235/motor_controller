@@ -2,6 +2,7 @@
 #include "motor_controller.hpp"
 
 #include "configuration.hpp"
+#include "utils.hpp"
 
 MotorController::MotorController(MotorDriver *left_motor,
                                  MotorDriver *right_motor,
@@ -9,7 +10,7 @@ MotorController::MotorController(MotorDriver *left_motor,
     : dist_between_wheels_(dist_between_wheels),
       left_motor_(left_motor),
       right_motor_(right_motor),
-      motor_update_timer_(1000 / MOTOR_RUN_FREQUENCY) {
+      motor_update_timer_(hz_to_ms(MOTOR_RUN_FREQUENCY)) {
     pose_ = {0.0, 0.0, 0.0};
     cmd_vel_ = {0.0, 0.0};
 }
