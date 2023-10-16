@@ -87,6 +87,28 @@ class MotorController {
      */
     void compute_wheel_speeds_();
 
+    /**
+     * @brief Moves the wheels forward at 0.3 m/s
+     */
+    void move_forward();
+    /**
+     * @brief Moves the wheels backward at -0.3 m/s
+     */
+    void move_backward();
+    /**
+     * @brief Turns the wheels left at 0.5 rad/s
+     */
+    void turn_left();
+    /**
+     * @brief Turns the wheels right at -0.5 rad/s
+     */
+    void turn_right();
+
+    /**
+     * @brief Stops the wheels
+     */
+    void stop();
+
    private:
     Pose pose_;                  ///< The current pose of the robot.
     CmdVel cmd_vel_;             ///< The commanded velocity for the robot.

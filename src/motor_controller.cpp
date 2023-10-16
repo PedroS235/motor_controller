@@ -35,6 +35,27 @@ void MotorController::run() {
     }
 }
 
+void MotorController::move_forward() {
+    cmd_vel_.x = 0.3;
+    cmd_vel_.w = 0.0;
+}
+void MotorController::move_backward() {
+    cmd_vel_.x = -0.3;
+    cmd_vel_.w = 0.0;
+}
+void MotorController::turn_left() {
+    cmd_vel_.x = 0.0;
+    cmd_vel_.w = 0.5;
+}
+void MotorController::turn_right() {
+    cmd_vel_.x = 0.0;
+    cmd_vel_.w = -0.5;
+}
+void MotorController::stop() {
+    cmd_vel_.x = 0.0;
+    cmd_vel_.w = 0.0;
+}
+
 void MotorController::compute_wheel_speeds_() {
     float v_r = (2 * cmd_vel_.x + cmd_vel_.w * dist_between_wheels_) /
                 (2 * right_motor_->get_wheel_radius());
