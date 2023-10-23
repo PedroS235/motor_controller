@@ -75,18 +75,6 @@ class MotorController {
      */
     void print_pose(void);
 
-   private:
-    /**
-     * @brief Compute and update the robot's pose based on wheel travelled distances.
-     */
-    void compute_pose_();
-
-    /**
-     * @brief Compute the wheel speeds required to achieve the commanded velocity,
-     * based on the Unicycle Kinematic Model.
-     */
-    void compute_wheel_speeds_();
-
     /**
      * @brief Moves the wheels forward at 0.3 m/s
      */
@@ -108,6 +96,21 @@ class MotorController {
      * @brief Stops the wheels
      */
     void stop();
+
+    void move_open_loop(uint8_t left_pwm, uint8_t right_pwm);
+    void get_motor_status(MotorData &left_motor, MotorData &right_motor);
+
+   private:
+    /**
+     * @brief Compute and update the robot's pose based on wheel travelled distances.
+     */
+    void compute_pose_();
+
+    /**
+     * @brief Compute the wheel speeds required to achieve the commanded velocity,
+     * based on the Unicycle Kinematic Model.
+     */
+    void compute_wheel_speeds_();
 
    private:
     Pose pose_;                  ///< The current pose of the robot.
