@@ -23,7 +23,7 @@ int SerialProtocol::parse_cmd_(const String& cmd) {
             unsigned int left_pwm_val, right_pwm_val;
             if (sscanf(cmd.c_str(), "o %u %u", &left_pwm_val, &right_pwm_val) == 2) {
                 if (left_pwm_val <= 255 && right_pwm_val <= 255) {
-                    // TODO: Missing open-loop mode in the motor controller.
+                    motorController_->move_open_loop(left_pwm_val, right_pwm_val);
                     return 0;  // Success
                 } else {
                     return -2;  // Error: PWM values out of range
@@ -40,7 +40,29 @@ int SerialProtocol::parse_cmd_(const String& cmd) {
             break;
 
         case FLAG_MOTOR_STATUS:
-            // TODO: Missing motor controller impelementation.
+            MotorData left_motor;
+            MotorData right_motor;
+            motorController_->get_motor_status(left_motor, right_motor);
+            Serial.print(left_motor.rpm);
+            Serial.print(" ");
+            Serial.print(left_motor.velocity);
+            Serial.print(" ");
+            Serial.print(left_motor.angular_velocity);
+            Serial.print(" ");
+            Serial.print(left_motor.distance);
+            Serial.print(" ");
+            Serial.print(left_motor.angle);
+            Serial.print(",");
+            Serial.print(right_motor.rpm);
+            Serial.print(" ");
+            Serial.print(right_motor.velocity);
+            Serial.print(" ");
+            Serial.print(right_motor.angular_velocity);
+            Serial.print(" ");
+            Serial.print(right_motor.distance);
+            Serial.print(" ");
+            Serial.print(right_motor.angle);
+
             return 1;  // Success and returned pose
             break;
 
