@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: /home/pedros235/projects/perceptron_bot/low_level/motor_controller/include/motor_driver.hpp Source File</title>
+<title>Motor Controller: /home/pedros235/projects/perceptron_bot/low_level/motor_controller/include/motor_driver.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Motor Controller
    </div>
   </td>
  </tr>
@@ -78,93 +78,95 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;encoder.hpp&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;pid.hpp&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structMotorData.html">   14</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structMotorData.html#a5ae3cc25ca2ed36e2ab4344333e68c61">   15</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structMotorData.html#a5ae3cc25ca2ed36e2ab4344333e68c61">velocity</a>;          </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structMotorData.html#a687ba427d2f7392125637a35f40dbebf">   16</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structMotorData.html#a687ba427d2f7392125637a35f40dbebf">angular_velocity</a>;  </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structMotorData.html#adbe9c6518950c77163b9cb6c4487f7f9">   17</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structMotorData.html#adbe9c6518950c77163b9cb6c4487f7f9">distance</a>;          </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structMotorData.html#ac0d06bdc6af81b784838d2bed0449602">   18</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structMotorData.html#ac0d06bdc6af81b784838d2bed0449602">angle</a>;             </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structMotorData.html#aa1b68c3cbe037025e54faae7607b557a">   19</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structMotorData.html#aa1b68c3cbe037025e54faae7607b557a">rpm</a>;               </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;} <a class="code" href="structMotorData.html">MotorData</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">enum class</span> MotorDirection { CW, CCW, STOP };</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">enum class</span> MotorMode { OPEN_LOOP, CLOSED_LOOP };</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classMotorDriver.html">   43</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMotorDriver.html">MotorDriver</a> {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classMotorDriver.html#a0d2a8e8b35597161921c1c86cddf92d8">MotorDriver</a>(uint8_t pin_en, uint8_t pin_in1, uint8_t pin_in2, <span class="keywordtype">bool</span> reverse = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="classMotorDriver.html#a0d2a8e8b35597161921c1c86cddf92d8">MotorDriver</a>(uint8_t pin_en,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                uint8_t pin_in1,</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                uint8_t pin_in2,</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <a class="code" href="classEncoder.html">Encoder</a> *encoder,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordtype">float</span> wheel_radius_,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                uint16_t ticks_per_rev,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordtype">bool</span> reverse = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#a079a1bdacd8846e90a417f4eb3c97552">run</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#a23cce2cf9edad83795dd14d36b63eaf5">print_status</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#a57371b004f3e4dd0410e071739c33318">reset</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#a27b02e38a09056bbcd00a8fd803dad11">set_velocity</a>(<span class="keywordtype">float</span> velocity);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#a91e81ae85c35a5e1035909e5ccec95cf">set_pwm</a>(<span class="keywordtype">int</span> pwm, MotorMode mode = MotorMode::OPEN_LOOP);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#aa29e0ce7b70b0ec6ee63a4dc1dc6c2a9">set_mode</a>(MotorMode mode);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#a9ae3a9e33d5b54342d0e88b46731cf00">get_motor_data</a>(<a class="code" href="structMotorData.html">MotorData</a> &amp;motor_data);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classMotorDriver.html#a9f4b37a46d278d28c498ba60a6c8f549">get_wheel_radius</a>();</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    uint16_t <a class="code" href="classMotorDriver.html#a030592f4ddaf6149bfaceea58e0a46f3">get_ticks_per_rev</a>();</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">void</span> send_pwm(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">void</span> set_direction(MotorDirection dir);</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">void</span> init_pins_(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">float</span> compute_rpm_(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">float</span> compute_angular_velocity_(<span class="keywordtype">float</span> rpm);</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">float</span> compute_velocity_(<span class="keywordtype">float</span> angular_velocity);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">float</span> compute_distance_(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">float</span> compute_wheel_angle_(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">void</span> compute_motor_data_(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment">// Pins</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    uint8_t pin_en_;   </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    uint8_t pin_in1_;  </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    uint8_t pin_in2_;  </div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="comment">// Parameters</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordtype">float</span> wheel_radius_;  </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    uint16_t ticks_per_rev_;  </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordtype">bool</span> reverse_;            </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="comment">// Sensor Readings</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <a class="code" href="structMotorData.html">MotorData</a> motor_data_;                  </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    int32_t last_encoder_reading_;          </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> last_data_reading_time_;  </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    MotorDirection motor_dir_;  </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    MotorMode motor_mode_;      </div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <a class="code" href="classEncoder.html">Encoder</a> *encoder_;          </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <a class="code" href="classPID.html">PID</a> pid_;                   </div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    uint8_t pwm_;               </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;};</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// MOTOR_DRIVER_HPP</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// TODO: Add method to update motor PID values.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structMotorData.html">   16</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structMotorData.html#a5ae3cc25ca2ed36e2ab4344333e68c61">   17</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structMotorData.html#a5ae3cc25ca2ed36e2ab4344333e68c61">velocity</a>;          </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structMotorData.html#a687ba427d2f7392125637a35f40dbebf">   18</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structMotorData.html#a687ba427d2f7392125637a35f40dbebf">angular_velocity</a>;  </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structMotorData.html#adbe9c6518950c77163b9cb6c4487f7f9">   19</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structMotorData.html#adbe9c6518950c77163b9cb6c4487f7f9">distance</a>;          </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structMotorData.html#ac0d06bdc6af81b784838d2bed0449602">   20</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structMotorData.html#ac0d06bdc6af81b784838d2bed0449602">angle</a>;             </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structMotorData.html#aa1b68c3cbe037025e54faae7607b557a">   21</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structMotorData.html#aa1b68c3cbe037025e54faae7607b557a">rpm</a>;               </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;} <a class="code" href="structMotorData.html">MotorData</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">enum class</span> MotorDirection { CW, CCW, STOP };</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">enum class</span> MotorMode { OPEN_LOOP, CLOSED_LOOP };</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classMotorDriver.html">   45</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMotorDriver.html">MotorDriver</a> {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classMotorDriver.html#a0d2a8e8b35597161921c1c86cddf92d8">MotorDriver</a>(uint8_t pin_en, uint8_t pin_in1, uint8_t pin_in2, <span class="keywordtype">bool</span> reverse = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classMotorDriver.html#a0d2a8e8b35597161921c1c86cddf92d8">MotorDriver</a>(uint8_t pin_en,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                uint8_t pin_in1,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                uint8_t pin_in2,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <a class="code" href="classEncoder.html">Encoder</a> *encoder,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordtype">float</span> wheel_radius_,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                uint16_t ticks_per_rev,</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordtype">bool</span> reverse = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#a079a1bdacd8846e90a417f4eb3c97552">run</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#a23cce2cf9edad83795dd14d36b63eaf5">print_status</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#a57371b004f3e4dd0410e071739c33318">reset</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#a27b02e38a09056bbcd00a8fd803dad11">set_velocity</a>(<span class="keywordtype">float</span> velocity);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#a91e81ae85c35a5e1035909e5ccec95cf">set_pwm</a>(<span class="keywordtype">int</span> pwm, MotorMode mode = MotorMode::OPEN_LOOP);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#aa29e0ce7b70b0ec6ee63a4dc1dc6c2a9">set_mode</a>(MotorMode mode);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorDriver.html#a9ae3a9e33d5b54342d0e88b46731cf00">get_motor_data</a>(<a class="code" href="structMotorData.html">MotorData</a> &amp;motor_data);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classMotorDriver.html#a9f4b37a46d278d28c498ba60a6c8f549">get_wheel_radius</a>();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    uint16_t <a class="code" href="classMotorDriver.html#a030592f4ddaf6149bfaceea58e0a46f3">get_ticks_per_rev</a>();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> send_pwm(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">void</span> set_direction(MotorDirection dir);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">void</span> init_pins_(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">float</span> compute_rpm_(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">float</span> compute_angular_velocity_(<span class="keywordtype">float</span> rpm);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">float</span> compute_velocity_(<span class="keywordtype">float</span> angular_velocity);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordtype">float</span> compute_distance_(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">float</span> compute_wheel_angle_(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">void</span> compute_motor_data_(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="comment">// Pins</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    uint8_t pin_en_;   </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    uint8_t pin_in1_;  </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    uint8_t pin_in2_;  </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="comment">// Parameters</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordtype">float</span> wheel_radius_;  </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    uint16_t ticks_per_rev_;  </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">bool</span> reverse_;            </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">// Sensor Readings</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <a class="code" href="structMotorData.html">MotorData</a> motor_data_;                  </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    int32_t last_encoder_reading_;          </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> last_data_reading_time_;  </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    MotorDirection motor_dir_;  </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    MotorMode motor_mode_;      </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <a class="code" href="classEncoder.html">Encoder</a> *encoder_;          </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <a class="code" href="classPID.html">PID</a> pid_;                   </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    uint8_t pwm_;               </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;};</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// MOTOR_DRIVER_HPP</span></div>
 <div class="ttc" id="aclassEncoder_html"><div class="ttname"><a href="classEncoder.html">Encoder</a></div><div class="ttdoc">A class to interface with an encoder using two input pins.</div><div class="ttdef"><b>Definition:</b> encoder.hpp:10</div></div>
-<div class="ttc" id="aclassMotorDriver_html"><div class="ttname"><a href="classMotorDriver.html">MotorDriver</a></div><div class="ttdoc">A class to control a motor with optional closed-loop feedback using an encoder and PID controller.</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:43</div></div>
+<div class="ttc" id="aclassMotorDriver_html"><div class="ttname"><a href="classMotorDriver.html">MotorDriver</a></div><div class="ttdoc">A class to control a motor with optional closed-loop feedback using an encoder and PID controller.</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:45</div></div>
 <div class="ttc" id="aclassMotorDriver_html_a030592f4ddaf6149bfaceea58e0a46f3"><div class="ttname"><a href="classMotorDriver.html#a030592f4ddaf6149bfaceea58e0a46f3">MotorDriver::get_ticks_per_rev</a></div><div class="ttdeci">uint16_t get_ticks_per_rev()</div><div class="ttdoc">Get the number of encoder ticks per revolution.</div><div class="ttdef"><b>Definition:</b> motor_driver.cpp:115</div></div>
 <div class="ttc" id="aclassMotorDriver_html_a079a1bdacd8846e90a417f4eb3c97552"><div class="ttname"><a href="classMotorDriver.html#a079a1bdacd8846e90a417f4eb3c97552">MotorDriver::run</a></div><div class="ttdeci">void run(void)</div><div class="ttdoc">Run the motor control loop. Needs to be called on every iteration of the main loop....</div><div class="ttdef"><b>Definition:</b> motor_driver.cpp:119</div></div>
 <div class="ttc" id="aclassMotorDriver_html_a0d2a8e8b35597161921c1c86cddf92d8"><div class="ttname"><a href="classMotorDriver.html#a0d2a8e8b35597161921c1c86cddf92d8">MotorDriver::MotorDriver</a></div><div class="ttdeci">MotorDriver(uint8_t pin_en, uint8_t pin_in1, uint8_t pin_in2, bool reverse=false)</div><div class="ttdoc">Constructor for the MotorDriver class (Open-Loop mode). No ability switch to closed-loop mode.</div><div class="ttdef"><b>Definition:</b> motor_driver.cpp:6</div></div>
@@ -176,12 +178,12 @@ $(function() {
 <div class="ttc" id="aclassMotorDriver_html_a9f4b37a46d278d28c498ba60a6c8f549"><div class="ttname"><a href="classMotorDriver.html#a9f4b37a46d278d28c498ba60a6c8f549">MotorDriver::get_wheel_radius</a></div><div class="ttdeci">float get_wheel_radius()</div><div class="ttdoc">Get the wheel radius of the wheel attached to the motor.</div><div class="ttdef"><b>Definition:</b> motor_driver.cpp:113</div></div>
 <div class="ttc" id="aclassMotorDriver_html_aa29e0ce7b70b0ec6ee63a4dc1dc6c2a9"><div class="ttname"><a href="classMotorDriver.html#aa29e0ce7b70b0ec6ee63a4dc1dc6c2a9">MotorDriver::set_mode</a></div><div class="ttdeci">void set_mode(MotorMode mode)</div><div class="ttdoc">Set the operation mode of the motor (Open-Loop or Closed-Loop).</div><div class="ttdef"><b>Definition:</b> motor_driver.cpp:94</div></div>
 <div class="ttc" id="aclassPID_html"><div class="ttname"><a href="classPID.html">PID</a></div><div class="ttdoc">A class to implement a Proportional-Integral-Derivative (PID) controller.</div><div class="ttdef"><b>Definition:</b> pid.hpp:28</div></div>
-<div class="ttc" id="astructMotorData_html"><div class="ttname"><a href="structMotorData.html">MotorData</a></div><div class="ttdoc">Structure to store motor-related data such as velocity, angular velocity, distance,...</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:14</div></div>
-<div class="ttc" id="astructMotorData_html_a5ae3cc25ca2ed36e2ab4344333e68c61"><div class="ttname"><a href="structMotorData.html#a5ae3cc25ca2ed36e2ab4344333e68c61">MotorData::velocity</a></div><div class="ttdeci">float velocity</div><div class="ttdoc">Linear velocity of the motor (in m/s).</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:15</div></div>
-<div class="ttc" id="astructMotorData_html_a687ba427d2f7392125637a35f40dbebf"><div class="ttname"><a href="structMotorData.html#a687ba427d2f7392125637a35f40dbebf">MotorData::angular_velocity</a></div><div class="ttdeci">float angular_velocity</div><div class="ttdoc">Angular velocity of the motor (in rad/s).</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:16</div></div>
-<div class="ttc" id="astructMotorData_html_aa1b68c3cbe037025e54faae7607b557a"><div class="ttname"><a href="structMotorData.html#aa1b68c3cbe037025e54faae7607b557a">MotorData::rpm</a></div><div class="ttdeci">float rpm</div><div class="ttdoc">Revolutions per minute (RPM) of the motor.</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:19</div></div>
-<div class="ttc" id="astructMotorData_html_ac0d06bdc6af81b784838d2bed0449602"><div class="ttname"><a href="structMotorData.html#ac0d06bdc6af81b784838d2bed0449602">MotorData::angle</a></div><div class="ttdeci">float angle</div><div class="ttdoc">Angular position of the motor (in radians).</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:18</div></div>
-<div class="ttc" id="astructMotorData_html_adbe9c6518950c77163b9cb6c4487f7f9"><div class="ttname"><a href="structMotorData.html#adbe9c6518950c77163b9cb6c4487f7f9">MotorData::distance</a></div><div class="ttdeci">float distance</div><div class="ttdoc">Total Traveled distance (in m).</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:17</div></div>
+<div class="ttc" id="astructMotorData_html"><div class="ttname"><a href="structMotorData.html">MotorData</a></div><div class="ttdoc">Structure to store motor-related data such as velocity, angular velocity, distance,...</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:16</div></div>
+<div class="ttc" id="astructMotorData_html_a5ae3cc25ca2ed36e2ab4344333e68c61"><div class="ttname"><a href="structMotorData.html#a5ae3cc25ca2ed36e2ab4344333e68c61">MotorData::velocity</a></div><div class="ttdeci">float velocity</div><div class="ttdoc">Linear velocity of the motor (in m/s).</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:17</div></div>
+<div class="ttc" id="astructMotorData_html_a687ba427d2f7392125637a35f40dbebf"><div class="ttname"><a href="structMotorData.html#a687ba427d2f7392125637a35f40dbebf">MotorData::angular_velocity</a></div><div class="ttdeci">float angular_velocity</div><div class="ttdoc">Angular velocity of the motor (in rad/s).</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:18</div></div>
+<div class="ttc" id="astructMotorData_html_aa1b68c3cbe037025e54faae7607b557a"><div class="ttname"><a href="structMotorData.html#aa1b68c3cbe037025e54faae7607b557a">MotorData::rpm</a></div><div class="ttdeci">float rpm</div><div class="ttdoc">Revolutions per minute (RPM) of the motor.</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:21</div></div>
+<div class="ttc" id="astructMotorData_html_ac0d06bdc6af81b784838d2bed0449602"><div class="ttname"><a href="structMotorData.html#ac0d06bdc6af81b784838d2bed0449602">MotorData::angle</a></div><div class="ttdeci">float angle</div><div class="ttdoc">Angular position of the motor (in radians).</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:20</div></div>
+<div class="ttc" id="astructMotorData_html_adbe9c6518950c77163b9cb6c4487f7f9"><div class="ttname"><a href="structMotorData.html#adbe9c6518950c77163b9cb6c4487f7f9">MotorData::distance</a></div><div class="ttdeci">float distance</div><div class="ttdoc">Total Traveled distance (in m).</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

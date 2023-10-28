@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: /home/pedros235/projects/perceptron_bot/low_level/motor_controller/include/motor_controller.hpp Source File</title>
+<title>Motor Controller: /home/pedros235/projects/perceptron_bot/low_level/motor_controller/include/motor_controller.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Motor Controller
    </div>
   </td>
  </tr>
@@ -79,66 +79,90 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;motor_driver.hpp&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;timer.hpp&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structPose.html">   15</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structPose.html#a2f30fe76d6747d973daff013207ca0e8">   16</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structPose.html#a2f30fe76d6747d973daff013207ca0e8">x</a>;      </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structPose.html#a60610dad0457edf9e1c57a787b68b632">   17</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structPose.html#a60610dad0457edf9e1c57a787b68b632">y</a>;      </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structPose.html#a2e2edc8448a8f6f4a21cbd7eca63c2ff">   18</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structPose.html#a2e2edc8448a8f6f4a21cbd7eca63c2ff">theta</a>;  </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;} <a class="code" href="structPose.html">Pose</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structCmdVel.html">   26</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structCmdVel.html#a805a3e72f0b2e07d7416471f77fb6602">   27</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structCmdVel.html#a805a3e72f0b2e07d7416471f77fb6602">x</a>;  </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structCmdVel.html#ae808805000ca793c271576c3a1138767">   28</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structCmdVel.html#ae808805000ca793c271576c3a1138767">w</a>;  </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <a class="code" href="structCmdVel.html">CmdVel</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classMotorController.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMotorController.html">MotorController</a> {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classMotorController.html#ab5cd97c5a8acb779ed96a92383ffacdb">MotorController</a>(<a class="code" href="classMotorDriver.html">MotorDriver</a> *left_motor,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    <a class="code" href="classMotorDriver.html">MotorDriver</a> *right_motor,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    <span class="keywordtype">float</span> dist_between_wheels);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#ad802cb0db3352121065b47a7e0208a90">get_pose</a>(<a class="code" href="structPose.html">Pose</a> &amp;pose);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#a9e5caf74d646e06a5c069dff9dcab332">set_cmd_vel</a>(<a class="code" href="structCmdVel.html">CmdVel</a> cmd_vel);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#aef5832dcfa4eeb4c97cd9c98ee0eddfa">reset</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#a7209cb7c62726e8e15b67885a3a6a2a0">run</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#a74451a9c013f4c3d7903560ff07e9312">print_pose</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> compute_pose_();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> compute_wheel_speeds_();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="structPose.html">Pose</a> pose_;                  </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="structCmdVel.html">CmdVel</a> cmd_vel_;             </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">float</span> dist_between_wheels_;  </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="classMotorDriver.html">MotorDriver</a> *left_motor_;   </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="classMotorDriver.html">MotorDriver</a> *right_motor_;  </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="classTimer.html">Timer</a> motor_update_timer_;  </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;};</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// MOTOR_CONTROLLER_HPP</span></div>
-<div class="ttc" id="aclassMotorController_html"><div class="ttname"><a href="classMotorController.html">MotorController</a></div><div class="ttdoc">A class for controlling two motors and computing the robot's pose.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:35</div></div>
-<div class="ttc" id="aclassMotorController_html_a7209cb7c62726e8e15b67885a3a6a2a0"><div class="ttname"><a href="classMotorController.html#a7209cb7c62726e8e15b67885a3a6a2a0">MotorController::run</a></div><div class="ttdeci">void run(void)</div><div class="ttdoc">Run the motor controller's control loop. This function should be called on every iteration of the mai...</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:28</div></div>
-<div class="ttc" id="aclassMotorController_html_a74451a9c013f4c3d7903560ff07e9312"><div class="ttname"><a href="classMotorController.html#a74451a9c013f4c3d7903560ff07e9312">MotorController::print_pose</a></div><div class="ttdeci">void print_pose(void)</div><div class="ttdoc">Print the current pose of the robot.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:64</div></div>
-<div class="ttc" id="aclassMotorController_html_a9e5caf74d646e06a5c069dff9dcab332"><div class="ttname"><a href="classMotorController.html#a9e5caf74d646e06a5c069dff9dcab332">MotorController::set_cmd_vel</a></div><div class="ttdeci">void set_cmd_vel(CmdVel cmd_vel)</div><div class="ttdoc">Set the commanded velocity for the robot.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:17</div></div>
-<div class="ttc" id="aclassMotorController_html_ab5cd97c5a8acb779ed96a92383ffacdb"><div class="ttname"><a href="classMotorController.html#ab5cd97c5a8acb779ed96a92383ffacdb">MotorController::MotorController</a></div><div class="ttdeci">MotorController(MotorDriver *left_motor, MotorDriver *right_motor, float dist_between_wheels)</div><div class="ttdoc">Constructor for the MotorController class.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:6</div></div>
-<div class="ttc" id="aclassMotorController_html_ad802cb0db3352121065b47a7e0208a90"><div class="ttname"><a href="classMotorController.html#ad802cb0db3352121065b47a7e0208a90">MotorController::get_pose</a></div><div class="ttdeci">void get_pose(Pose &amp;pose)</div><div class="ttdoc">Get the current pose of the robot.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:19</div></div>
-<div class="ttc" id="aclassMotorController_html_aef5832dcfa4eeb4c97cd9c98ee0eddfa"><div class="ttname"><a href="classMotorController.html#aef5832dcfa4eeb4c97cd9c98ee0eddfa">MotorController::reset</a></div><div class="ttdeci">void reset(void)</div><div class="ttdoc">Reset the motor controller to its initial state.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:21</div></div>
-<div class="ttc" id="aclassMotorDriver_html"><div class="ttname"><a href="classMotorDriver.html">MotorDriver</a></div><div class="ttdoc">A class to control a motor with optional closed-loop feedback using an encoder and PID controller.</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:43</div></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">// TODO: Add methods to update motor PID values.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structPose.html">   17</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structPose.html#a2f30fe76d6747d973daff013207ca0e8">   18</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structPose.html#a2f30fe76d6747d973daff013207ca0e8">x</a>;      </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structPose.html#a60610dad0457edf9e1c57a787b68b632">   19</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structPose.html#a60610dad0457edf9e1c57a787b68b632">y</a>;      </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structPose.html#a2e2edc8448a8f6f4a21cbd7eca63c2ff">   20</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structPose.html#a2e2edc8448a8f6f4a21cbd7eca63c2ff">theta</a>;  </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;} <a class="code" href="structPose.html">Pose</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structCmdVel.html">   28</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structCmdVel.html#a805a3e72f0b2e07d7416471f77fb6602">   29</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structCmdVel.html#a805a3e72f0b2e07d7416471f77fb6602">x</a>;  </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structCmdVel.html#ae808805000ca793c271576c3a1138767">   30</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structCmdVel.html#ae808805000ca793c271576c3a1138767">w</a>;  </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;} <a class="code" href="structCmdVel.html">CmdVel</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classMotorController.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMotorController.html">MotorController</a> {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classMotorController.html#ab5cd97c5a8acb779ed96a92383ffacdb">MotorController</a>(<a class="code" href="classMotorDriver.html">MotorDriver</a> *left_motor,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                    <a class="code" href="classMotorDriver.html">MotorDriver</a> *right_motor,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    <span class="keywordtype">float</span> dist_between_wheels);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#ad802cb0db3352121065b47a7e0208a90">get_pose</a>(<a class="code" href="structPose.html">Pose</a> &amp;pose);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#a9e5caf74d646e06a5c069dff9dcab332">set_cmd_vel</a>(<a class="code" href="structCmdVel.html">CmdVel</a> cmd_vel);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#aef5832dcfa4eeb4c97cd9c98ee0eddfa">reset</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#a7209cb7c62726e8e15b67885a3a6a2a0">run</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#a74451a9c013f4c3d7903560ff07e9312">print_pose</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#a686f2537a4f9496fda89cabd67feccf8">move_forward</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#acea931aa5e3ae472e06f14283c23442f">move_backward</a>();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#a3c546c1d1501e7f69fe7cce939a0b386">turn_left</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#a61d0964cfb67a037aa60d1bb55034646">turn_right</a>();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#a317ce58ea93ea1329de5b87391560082">stop</a>();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#ae31ba3bbc17ac14bcb1032d501e7b6ef">move_open_loop</a>(uint8_t left_pwm, uint8_t right_pwm);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#a80fffdb56ca32dd066f183c0cd203501">get_motor_status</a>(<a class="code" href="structMotorData.html">MotorData</a> &amp;left_motor, <a class="code" href="structMotorData.html">MotorData</a> &amp;right_motor);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotorController.html#a7a857039e3e271ea915e056108de749a">reset_pose</a>();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> compute_pose_();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">void</span> compute_wheel_speeds_();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="structPose.html">Pose</a> pose_;                  </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="structCmdVel.html">CmdVel</a> cmd_vel_;             </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">float</span> dist_between_wheels_;  </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="classMotorDriver.html">MotorDriver</a> *left_motor_;   </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="classMotorDriver.html">MotorDriver</a> *right_motor_;  </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <a class="code" href="classTimer.html">Timer</a> motor_update_timer_;  </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;};</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// MOTOR_CONTROLLER_HPP</span></div>
+<div class="ttc" id="aclassMotorController_html"><div class="ttname"><a href="classMotorController.html">MotorController</a></div><div class="ttdoc">A class for controlling two motors and computing the robot's pose.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:37</div></div>
+<div class="ttc" id="aclassMotorController_html_a317ce58ea93ea1329de5b87391560082"><div class="ttname"><a href="classMotorController.html#a317ce58ea93ea1329de5b87391560082">MotorController::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdoc">Stops the wheels.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:54</div></div>
+<div class="ttc" id="aclassMotorController_html_a3c546c1d1501e7f69fe7cce939a0b386"><div class="ttname"><a href="classMotorController.html#a3c546c1d1501e7f69fe7cce939a0b386">MotorController::turn_left</a></div><div class="ttdeci">void turn_left()</div><div class="ttdoc">Turns the wheels left at 0.5 rad/s.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:46</div></div>
+<div class="ttc" id="aclassMotorController_html_a61d0964cfb67a037aa60d1bb55034646"><div class="ttname"><a href="classMotorController.html#a61d0964cfb67a037aa60d1bb55034646">MotorController::turn_right</a></div><div class="ttdeci">void turn_right()</div><div class="ttdoc">Turns the wheels right at -0.5 rad/s.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:50</div></div>
+<div class="ttc" id="aclassMotorController_html_a686f2537a4f9496fda89cabd67feccf8"><div class="ttname"><a href="classMotorController.html#a686f2537a4f9496fda89cabd67feccf8">MotorController::move_forward</a></div><div class="ttdeci">void move_forward()</div><div class="ttdoc">Moves the wheels forward at 0.3 m/s.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:38</div></div>
+<div class="ttc" id="aclassMotorController_html_a7209cb7c62726e8e15b67885a3a6a2a0"><div class="ttname"><a href="classMotorController.html#a7209cb7c62726e8e15b67885a3a6a2a0">MotorController::run</a></div><div class="ttdeci">void run(void)</div><div class="ttdoc">Run the motor controller's control loop. This function should be called on every iteration of the mai...</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:29</div></div>
+<div class="ttc" id="aclassMotorController_html_a74451a9c013f4c3d7903560ff07e9312"><div class="ttname"><a href="classMotorController.html#a74451a9c013f4c3d7903560ff07e9312">MotorController::print_pose</a></div><div class="ttdeci">void print_pose(void)</div><div class="ttdoc">Print the current pose of the robot.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:92</div></div>
+<div class="ttc" id="aclassMotorController_html_a7a857039e3e271ea915e056108de749a"><div class="ttname"><a href="classMotorController.html#a7a857039e3e271ea915e056108de749a">MotorController::reset_pose</a></div><div class="ttdeci">void reset_pose()</div><div class="ttdoc">Reset the robot's pose to (0, 0, 0).</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:59</div></div>
+<div class="ttc" id="aclassMotorController_html_a80fffdb56ca32dd066f183c0cd203501"><div class="ttname"><a href="classMotorController.html#a80fffdb56ca32dd066f183c0cd203501">MotorController::get_motor_status</a></div><div class="ttdeci">void get_motor_status(MotorData &amp;left_motor, MotorData &amp;right_motor)</div><div class="ttdoc">Get the current status of the motors.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:106</div></div>
+<div class="ttc" id="aclassMotorController_html_a9e5caf74d646e06a5c069dff9dcab332"><div class="ttname"><a href="classMotorController.html#a9e5caf74d646e06a5c069dff9dcab332">MotorController::set_cmd_vel</a></div><div class="ttdeci">void set_cmd_vel(CmdVel cmd_vel)</div><div class="ttdoc">Set the commanded velocity for the robot.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:18</div></div>
+<div class="ttc" id="aclassMotorController_html_ab5cd97c5a8acb779ed96a92383ffacdb"><div class="ttname"><a href="classMotorController.html#ab5cd97c5a8acb779ed96a92383ffacdb">MotorController::MotorController</a></div><div class="ttdeci">MotorController(MotorDriver *left_motor, MotorDriver *right_motor, float dist_between_wheels)</div><div class="ttdoc">Constructor for the MotorController class.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:7</div></div>
+<div class="ttc" id="aclassMotorController_html_acea931aa5e3ae472e06f14283c23442f"><div class="ttname"><a href="classMotorController.html#acea931aa5e3ae472e06f14283c23442f">MotorController::move_backward</a></div><div class="ttdeci">void move_backward()</div><div class="ttdoc">Moves the wheels backward at -0.3 m/s.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:42</div></div>
+<div class="ttc" id="aclassMotorController_html_ad802cb0db3352121065b47a7e0208a90"><div class="ttname"><a href="classMotorController.html#ad802cb0db3352121065b47a7e0208a90">MotorController::get_pose</a></div><div class="ttdeci">void get_pose(Pose &amp;pose)</div><div class="ttdoc">Get the current pose of the robot.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:20</div></div>
+<div class="ttc" id="aclassMotorController_html_ae31ba3bbc17ac14bcb1032d501e7b6ef"><div class="ttname"><a href="classMotorController.html#ae31ba3bbc17ac14bcb1032d501e7b6ef">MotorController::move_open_loop</a></div><div class="ttdeci">void move_open_loop(uint8_t left_pwm, uint8_t right_pwm)</div><div class="ttdoc">Moves the motors in open-loop mode.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:101</div></div>
+<div class="ttc" id="aclassMotorController_html_aef5832dcfa4eeb4c97cd9c98ee0eddfa"><div class="ttname"><a href="classMotorController.html#aef5832dcfa4eeb4c97cd9c98ee0eddfa">MotorController::reset</a></div><div class="ttdeci">void reset(void)</div><div class="ttdoc">Reset the motor controller to its initial state.</div><div class="ttdef"><b>Definition:</b> motor_controller.cpp:22</div></div>
+<div class="ttc" id="aclassMotorDriver_html"><div class="ttname"><a href="classMotorDriver.html">MotorDriver</a></div><div class="ttdoc">A class to control a motor with optional closed-loop feedback using an encoder and PID controller.</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:45</div></div>
 <div class="ttc" id="aclassTimer_html"><div class="ttname"><a href="classTimer.html">Timer</a></div><div class="ttdoc">A simple timer class for measuring elapsed time intervals.</div><div class="ttdef"><b>Definition:</b> timer.hpp:14</div></div>
-<div class="ttc" id="astructCmdVel_html"><div class="ttname"><a href="structCmdVel.html">CmdVel</a></div><div class="ttdoc">Represents the commanded velocity for a differential drive robot with x and w components.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:26</div></div>
-<div class="ttc" id="astructCmdVel_html_a805a3e72f0b2e07d7416471f77fb6602"><div class="ttname"><a href="structCmdVel.html#a805a3e72f0b2e07d7416471f77fb6602">CmdVel::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">Linear velocity along the x-axis.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:27</div></div>
-<div class="ttc" id="astructCmdVel_html_ae808805000ca793c271576c3a1138767"><div class="ttname"><a href="structCmdVel.html#ae808805000ca793c271576c3a1138767">CmdVel::w</a></div><div class="ttdeci">float w</div><div class="ttdoc">Angular velocity around the z-axis.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:28</div></div>
-<div class="ttc" id="astructPose_html"><div class="ttname"><a href="structPose.html">Pose</a></div><div class="ttdoc">Represents the pose of a differential drive robot with x, y, and theta components.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:15</div></div>
-<div class="ttc" id="astructPose_html_a2e2edc8448a8f6f4a21cbd7eca63c2ff"><div class="ttname"><a href="structPose.html#a2e2edc8448a8f6f4a21cbd7eca63c2ff">Pose::theta</a></div><div class="ttdeci">float theta</div><div class="ttdoc">The orientation angle (theta) of the robot.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:18</div></div>
-<div class="ttc" id="astructPose_html_a2f30fe76d6747d973daff013207ca0e8"><div class="ttname"><a href="structPose.html#a2f30fe76d6747d973daff013207ca0e8">Pose::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">The x-coordinate of the robot's position.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:16</div></div>
-<div class="ttc" id="astructPose_html_a60610dad0457edf9e1c57a787b68b632"><div class="ttname"><a href="structPose.html#a60610dad0457edf9e1c57a787b68b632">Pose::y</a></div><div class="ttdeci">float y</div><div class="ttdoc">The y-coordinate of the robot's position.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:17</div></div>
+<div class="ttc" id="astructCmdVel_html"><div class="ttname"><a href="structCmdVel.html">CmdVel</a></div><div class="ttdoc">Represents the commanded velocity for a differential drive robot with x and w components.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:28</div></div>
+<div class="ttc" id="astructCmdVel_html_a805a3e72f0b2e07d7416471f77fb6602"><div class="ttname"><a href="structCmdVel.html#a805a3e72f0b2e07d7416471f77fb6602">CmdVel::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">Linear velocity along the x-axis.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:29</div></div>
+<div class="ttc" id="astructCmdVel_html_ae808805000ca793c271576c3a1138767"><div class="ttname"><a href="structCmdVel.html#ae808805000ca793c271576c3a1138767">CmdVel::w</a></div><div class="ttdeci">float w</div><div class="ttdoc">Angular velocity around the z-axis.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:30</div></div>
+<div class="ttc" id="astructMotorData_html"><div class="ttname"><a href="structMotorData.html">MotorData</a></div><div class="ttdoc">Structure to store motor-related data such as velocity, angular velocity, distance,...</div><div class="ttdef"><b>Definition:</b> motor_driver.hpp:16</div></div>
+<div class="ttc" id="astructPose_html"><div class="ttname"><a href="structPose.html">Pose</a></div><div class="ttdoc">Represents the pose of a differential drive robot with x, y, and theta components.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:17</div></div>
+<div class="ttc" id="astructPose_html_a2e2edc8448a8f6f4a21cbd7eca63c2ff"><div class="ttname"><a href="structPose.html#a2e2edc8448a8f6f4a21cbd7eca63c2ff">Pose::theta</a></div><div class="ttdeci">float theta</div><div class="ttdoc">The orientation angle (theta) of the robot.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:20</div></div>
+<div class="ttc" id="astructPose_html_a2f30fe76d6747d973daff013207ca0e8"><div class="ttname"><a href="structPose.html#a2f30fe76d6747d973daff013207ca0e8">Pose::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">The x-coordinate of the robot's position.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:18</div></div>
+<div class="ttc" id="astructPose_html_a60610dad0457edf9e1c57a787b68b632"><div class="ttname"><a href="structPose.html#a60610dad0457edf9e1c57a787b68b632">Pose::y</a></div><div class="ttdeci">float y</div><div class="ttdoc">The y-coordinate of the robot's position.</div><div class="ttdef"><b>Definition:</b> motor_controller.hpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

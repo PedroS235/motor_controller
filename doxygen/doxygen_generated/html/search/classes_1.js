@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['encoder_57',['Encoder',['../classEncoder.html',1,'']]]
+  ['encoder_67',['Encoder',['../classEncoder.html',1,'']]]
 ];

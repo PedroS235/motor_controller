@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Main Page</title>
+<title>Motor Controller: Motor Controller for Differential Drive Robot</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Motor Controller
    </div>
   </td>
  </tr>
@@ -61,11 +61,117 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">My Project Documentation</div>  </div>
+<div class="title">Motor Controller for Differential Drive Robot </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md__home_pedros235_projects_perceptron_bot_low_level_motor_controller_README"></a> </p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Description</h1>
+<p>This Motor Controller project is designed to work seamlessly with a differential drive robot <a href="https://github.com/PedroS235/perceptron_bot">Perceptron Bot</a>. It offers a comprehensive suite of features, including a motor driver implementation, a serial communication protocol, a timer API for simplified timer creation, and a <a class="el" href="classPID.html" title="A class to implement a Proportional-Integral-Derivative (PID) controller.">PID</a> controller. Additionally, the timer and <a class="el" href="classPID.html" title="A class to implement a Proportional-Integral-Derivative (PID) controller.">PID</a> controller functionalities are designed to become external libraries for wider use.</p>
+<p>The motor driver component assumes the use of an <b>L298N driver</b> to facilitate communication between the Arduino and the actual motors. It can operate in both open and closed-loop modes, with encoder feedback required for closed-loop control. An implementation of an <a class="el" href="classEncoder.html" title="A class to interface with an encoder using two input pins.">Encoder</a> class is provided for this purpose.</p>
+<p>The Motor Controller manages two instances of the motor driver, calculating the robot's pose based on the distances traveled by the wheels. It also accepts velocity commands, specifically linear x and angular z velocities.</p>
+<p>A very simple serial communication protocol is also available, which is to be used to make the communication via serial with the motor_controller. The main idea is to have a ROS2 node running and communicating via serial with the arduino. Then, this node will subscribe to velocity commands, which will be sent to the motor_controller and also publish odometry. For more information on the protocol, check <a href="#serial-protocol">Serial Protocol</a> section.</p>
+<p>This entire repo has been developed on YouTube, for the series <a href="https://youtube.com/playlist?list=PLk6lkttcBmn6jJXv34IQDu1FgJ8daLgI6&amp;si=cC8ekMfqWyN_AXRU">Building and Autonomous Robot From Scratch</a></p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Table of Contents</h1>
+<ul>
+<li><a href="#motor-controller-for-differential-drive-robot">Motor Controller for Differential Drive Robot</a><ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#getting-started">Getting Started</a><ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#installation">Installation</a></li>
+</ul>
+</li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#serial-protocol">Serial Protocol</a><ul>
+<li><a href="#possible-acknowledgment-errors">Possible Acknowledgment Errors</a></li>
+</ul>
+</li>
+<li><a href="#doxygen-documentation">Doxygen Documentation</a></li>
+</ul>
+</li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Getting Started</h1>
+<p>To get started with this Motor Controller project, follow these steps:</p>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Prerequisites</h2>
+<p>Before you begin, ensure you have the following:</p>
+<ul>
+<li><b>Hardware</b>: Arduino, L298N driver, differential drive robot</li>
+<li><b>Software</b>: PlatformIO</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Installation</h2>
+<ol type="1">
+<li>Clone this repository to your local machine.</li>
+<li>Configure your hardware connections as specified in the configuratin.hpp file, or change the configuration to match your connections.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Usage</h1>
+<p>At this moment in time, you can use the main.cpp as an example how how to use the motor controller. Essentially, you need to call the method <code>run</code> on every main loop iteration. To command the robot, you can then use <code>set_cmd(cmd_vel)</code> to make your robot/motors move.</p>
+<p>In case you upload the current code to a board, the robot should be going on a circle.</p>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Configuration</h1>
+<p>You can configure various aspects of the Motor Controller by editing the <code><a class="el" href="configuration_8hpp_source.html">configuration.hpp</a></code> file located in the <code>./include</code> directory. This file allows you to specify pin configurations and <a class="el" href="classPID.html" title="A class to implement a Proportional-Integral-Derivative (PID) controller.">PID</a> controller settings, among other things.</p>
+<h1><a class="anchor" id="autotoc_md8"></a>
+Serial Protocol</h1>
+<p>The serial protocol is quite straight forward. The sender will need to send a command in a specific format which will always start with a flag. Some commands, like velocity commands will also include some values in the command itself. For the moment, these are the available commands:</p>
+<ul>
+<li><code>c x w</code>:<ul>
+<li><b>c</b>: is the flag indicating closed-loop control</li>
+<li><b>x</b>: is the linear velocity x (-1000mm/s - 1000mm/s) **_[interger type]_**</li>
+<li><b>w</b>: is the angular velocity z (-1000mm/s - 1000mm/s) **_[integer type]_**</li>
+<li><b>Acknowledgment:</b> OK</li>
+</ul>
+</li>
+<li><code>o left_pwm right_pwm</code>:<ul>
+<li><b>o</b>: is the flag indicating open-loop control</li>
+<li><b>left_pwm</b>: is the PWM value to be sent to the left motor (0-254)</li>
+<li><b>right_pwm</b>: is the PWM value to be sent to the right motor (0-254)</li>
+<li><b>Acknowledgment:</b> OK</li>
+</ul>
+</li>
+<li><code>q</code>: Get robot's pose/odometry.<ul>
+<li><b>Returned format</b>: <code>x y z</code></li>
+<li><b>Acknowledgment:</b> the pose</li>
+</ul>
+</li>
+<li><code>m</code>: Get motor's data.<ul>
+<li><b>Returned format</b>: <code>left_rpm left_velocity left_angular_velocity left_distance left_angle,right_rpm right_velocity right_angular_velocity right_distance right_angle</code></li>
+<li><b>Acknowledgment:</b> the data</li>
+</ul>
+</li>
+<li><code>r</code>: Reset robot pose.<ul>
+<li><b>Acknowledgment:</b> OK</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Possible Acknowledgment Errors</h2>
+<ul>
+<li><code>ERR: Invalid command</code>: In case the command does not exist or as an invalid format.</li>
+<li><code>ERR: PWM values out of range</code>: In case the pwm values are not between 0-254.</li>
+<li><code>ERR: Unknown error</code>: In case none of the above occured. This could be related to arduino and not directly to the command sent.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Doxygen Documentation</h1>
+<p>The project includes Doxygen documentation, which can be found in the <code>./doxygen/doxygen_generated/html</code> directory. To view the documentation, you can start a Python server as follows:</p>
+<div class="fragment"><div class="line">$ cd doxygen/generated_doxygen/html &amp;&amp; python -m http.server</div>
+</div><!-- fragment --><p>Then, open your web browser and navigate to <a href="http://localhost:8000">http://localhost:8000</a> to access the Doxygen documentation.</p>
+<h1><a class="anchor" id="autotoc_md11"></a>
+Contributing</h1>
+<p>Contributions are welcome. Help us make this Motor Controller even better!</p>
+<h1><a class="anchor" id="autotoc_md12"></a>
+License</h1>
+<p>This project is licensed under the MIT License. Feel free to use, modify, and distribute it in accordance with the license terms. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

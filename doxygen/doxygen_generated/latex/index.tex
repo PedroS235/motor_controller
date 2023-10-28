@@ -1,0 +1,102 @@
+\label{index_md__home_pedros235_projects_perceptron_bot_low_level_motor_controller_README}%
+\Hypertarget{index_md__home_pedros235_projects_perceptron_bot_low_level_motor_controller_README}%
+ \hypertarget{index_autotoc_md1}{}\doxysection{Description}\label{index_autotoc_md1}
+This Motor Controller project is designed to work seamlessly with a differential drive robot \href{https://github.com/PedroS235/perceptron_bot}{\texttt{ Perceptron Bot}}. It offers a comprehensive suite of features, including a motor driver implementation, a serial communication protocol, a timer API for simplified timer creation, and a \mbox{\hyperlink{classPID}{PID}} controller. Additionally, the timer and \mbox{\hyperlink{classPID}{PID}} controller functionalities are designed to become external libraries for wider use.
+
+The motor driver component assumes the use of an {\bfseries{L298N driver}} to facilitate communication between the Arduino and the actual motors. It can operate in both open and closed-\/loop modes, with encoder feedback required for closed-\/loop control. An implementation of an \mbox{\hyperlink{classEncoder}{Encoder}} class is provided for this purpose.
+
+The Motor Controller manages two instances of the motor driver, calculating the robot\textquotesingle{}s pose based on the distances traveled by the wheels. It also accepts velocity commands, specifically linear x and angular z velocities.
+
+A very simple serial communication protocol is also available, which is to be used to make the communication via serial with the motor\+\_\+controller. The main idea is to have a ROS2 node running and communicating via serial with the arduino. Then, this node will subscribe to velocity commands, which will be sent to the motor\+\_\+controller and also publish odometry. For more information on the protocol, check \href{\#serial-protocol}{\texttt{ Serial Protocol}} section.
+
+This entire repo has been developed on You\+Tube, for the series \href{https://youtube.com/playlist?list=PLk6lkttcBmn6jJXv34IQDu1FgJ8daLgI6&si=cC8ekMfqWyN_AXRU}{\texttt{ Building and Autonomous Robot From Scratch}}\hypertarget{index_autotoc_md2}{}\doxysection{Table of Contents}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item \href{\#motor-controller-for-differential-drive-robot}{\texttt{ Motor Controller for Differential Drive Robot}}
+\begin{DoxyItemize}
+\item \href{\#description}{\texttt{ Description}}
+\item \href{\#table-of-contents}{\texttt{ Table of Contents}}
+\item \href{\#getting-started}{\texttt{ Getting Started}}
+\begin{DoxyItemize}
+\item \href{\#prerequisites}{\texttt{ Prerequisites}}
+\item \href{\#installation}{\texttt{ Installation}}
+\end{DoxyItemize}
+\item \href{\#usage}{\texttt{ Usage}}
+\item \href{\#configuration}{\texttt{ Configuration}}
+\item \href{\#serial-protocol}{\texttt{ Serial Protocol}}
+\begin{DoxyItemize}
+\item \href{\#possible-acknowledgment-errors}{\texttt{ Possible Acknowledgment Errors}}
+\end{DoxyItemize}
+\item \href{\#doxygen-documentation}{\texttt{ Doxygen Documentation}}
+\end{DoxyItemize}
+\item \href{\#contributing}{\texttt{ Contributing}}
+\item \href{\#license}{\texttt{ License}}
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{Getting Started}\label{index_autotoc_md3}
+To get started with this Motor Controller project, follow these steps\+:\hypertarget{index_autotoc_md4}{}\doxysubsection{Prerequisites}\label{index_autotoc_md4}
+Before you begin, ensure you have the following\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Hardware}}\+: Arduino, L298N driver, differential drive robot
+\item {\bfseries{Software}}\+: Platform\+IO
+\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsection{Installation}\label{index_autotoc_md5}
+
+\begin{DoxyEnumerate}
+\item Clone this repository to your local machine.
+\item Configure your hardware connections as specified in the configuratin.\+hpp file, or change the configuration to match your connections.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md6}{}\doxysection{Usage}\label{index_autotoc_md6}
+At this moment in time, you can use the main.\+cpp as an example how how to use the motor controller. Essentially, you need to call the method {\ttfamily run} on every main loop iteration. To command the robot, you can then use {\ttfamily set\+\_\+cmd(cmd\+\_\+vel)} to make your robot/motors move.
+
+In case you upload the current code to a board, the robot should be going on a circle.\hypertarget{index_autotoc_md7}{}\doxysection{Configuration}\label{index_autotoc_md7}
+You can configure various aspects of the Motor Controller by editing the {\ttfamily \mbox{\hyperlink{configuration_8hpp_source}{configuration.\+hpp}}} file located in the {\ttfamily ./include} directory. This file allows you to specify pin configurations and \mbox{\hyperlink{classPID}{PID}} controller settings, among other things.\hypertarget{index_autotoc_md8}{}\doxysection{Serial Protocol}\label{index_autotoc_md8}
+The serial protocol is quite straight forward. The sender will need to send a command in a specific format which will always start with a flag. Some commands, like velocity commands will also include some values in the command itself. For the moment, these are the available commands\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily c x w}\+:
+\begin{DoxyItemize}
+\item {\bfseries{c}}\+: is the flag indicating closed-\/loop control
+\item {\bfseries{x}}\+: is the linear velocity x (-\/1000mm/s -\/ 1000mm/s) $\ast$$\ast$\+\_\+\mbox{[}interger type\mbox{]}\+\_\+$\ast$$\ast$
+\item {\bfseries{w}}\+: is the angular velocity z (-\/1000mm/s -\/ 1000mm/s) $\ast$$\ast$\+\_\+\mbox{[}integer type\mbox{]}\+\_\+$\ast$$\ast$
+\item {\bfseries{Acknowledgment\+:}} OK
+\end{DoxyItemize}
+\item {\ttfamily o left\+\_\+pwm right\+\_\+pwm}\+:
+\begin{DoxyItemize}
+\item {\bfseries{o}}\+: is the flag indicating open-\/loop control
+\item {\bfseries{left\+\_\+pwm}}\+: is the PWM value to be sent to the left motor (0-\/254)
+\item {\bfseries{right\+\_\+pwm}}\+: is the PWM value to be sent to the right motor (0-\/254)
+\item {\bfseries{Acknowledgment\+:}} OK
+\end{DoxyItemize}
+\item {\ttfamily q}\+: Get robot\textquotesingle{}s pose/odometry.
+\begin{DoxyItemize}
+\item {\bfseries{Returned format}}\+: {\ttfamily x y z}
+\item {\bfseries{Acknowledgment\+:}} the pose
+\end{DoxyItemize}
+\item {\ttfamily m}\+: Get motor\textquotesingle{}s data.
+\begin{DoxyItemize}
+\item {\bfseries{Returned format}}\+: {\ttfamily left\+\_\+rpm left\+\_\+velocity left\+\_\+angular\+\_\+velocity left\+\_\+distance left\+\_\+angle,right\+\_\+rpm right\+\_\+velocity right\+\_\+angular\+\_\+velocity right\+\_\+distance right\+\_\+angle}
+\item {\bfseries{Acknowledgment\+:}} the data
+\end{DoxyItemize}
+\item {\ttfamily r}\+: Reset robot pose.
+\begin{DoxyItemize}
+\item {\bfseries{Acknowledgment\+:}} OK
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysubsection{Possible Acknowledgment Errors}\label{index_autotoc_md9}
+
+\begin{DoxyItemize}
+\item {\ttfamily ERR\+: Invalid command}\+: In case the command does not exist or as an invalid format.
+\item {\ttfamily ERR\+: PWM values out of range}\+: In case the pwm values are not between 0-\/254.
+\item {\ttfamily ERR\+: Unknown error}\+: In case none of the above occured. This could be related to arduino and not directly to the command sent.
+\end{DoxyItemize}\hypertarget{index_autotoc_md10}{}\doxysection{Doxygen Documentation}\label{index_autotoc_md10}
+The project includes Doxygen documentation, which can be found in the {\ttfamily ./doxygen/doxygen\+\_\+generated/html} directory. To view the documentation, you can start a Python server as follows\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ cd doxygen/generated\_doxygen/html \&\& python -\/m http.server}
+
+\end{DoxyCode}
+
+
+Then, open your web browser and navigate to \href{http://localhost:8000}{\texttt{ http\+://localhost\+:8000}} to access the Doxygen documentation.\hypertarget{index_autotoc_md11}{}\doxysection{Contributing}\label{index_autotoc_md11}
+Contributions are welcome. Help us make this Motor Controller even better!\hypertarget{index_autotoc_md12}{}\doxysection{License}\label{index_autotoc_md12}
+This project is licensed under the MIT License. Feel free to use, modify, and distribute it in accordance with the license terms. 

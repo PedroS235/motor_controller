@@ -1,15 +1,16 @@
 var searchData=
 [
-  ['set_5fauto_5freset_89',['set_auto_reset',['../classTimer.html#aa7551140058e81e350f8f3d0444ac392',1,'Timer']]],
-  ['set_5fcmd_5fvel_90',['set_cmd_vel',['../classMotorController.html#a9e5caf74d646e06a5c069dff9dcab332',1,'MotorController']]],
-  ['set_5finterval_91',['set_interval',['../classTimer.html#ab6018a37c40dcadc373cc85f8c507da6',1,'Timer']]],
-  ['set_5fmode_92',['set_mode',['../classMotorDriver.html#aa29e0ce7b70b0ec6ee63a4dc1dc6c2a9',1,'MotorDriver']]],
-  ['set_5foutput_5flimits_93',['set_output_limits',['../classPID.html#ac36a868cb66af347dccd8e71cf1586d0',1,'PID::set_output_limits(output_limits_t output_limits)'],['../classPID.html#a122d9c78096d060c44a66da0cc26ab86',1,'PID::set_output_limits(float min_output, float max_output)']]],
-  ['set_5fpid_5fgains_94',['set_pid_gains',['../classPID.html#a0cd83247fa31f073fb05b137e58a462a',1,'PID::set_pid_gains(pid_gains_t pid_gains)'],['../classPID.html#a28e8bffa95d7891943a439bb324845ea',1,'PID::set_pid_gains(float kp, float ki, float kd)']]],
-  ['set_5fpwm_95',['set_pwm',['../classMotorDriver.html#a91e81ae85c35a5e1035909e5ccec95cf',1,'MotorDriver']]],
-  ['set_5freverse_96',['set_reverse',['../classEncoder.html#a872432557e6a7f10f386562133d66345',1,'Encoder']]],
-  ['set_5fsetpoint_97',['set_setpoint',['../classPID.html#aa38ec1b5f0345ed89f5a05ce699d9282',1,'PID']]],
-  ['set_5fvelocity_98',['set_velocity',['../classMotorDriver.html#a27b02e38a09056bbcd00a8fd803dad11',1,'MotorDriver']]],
-  ['start_99',['start',['../classTimer.html#a3a8b5272198d029779dc9302a54305a8',1,'Timer']]],
-  ['stop_100',['stop',['../classTimer.html#a63f0eb44b27402196590a03781515dba',1,'Timer']]]
+  ['serialprotocol_106',['SerialProtocol',['../classSerialProtocol.html#a848217aeac75994e2d9b9f2fe9b1ca51',1,'SerialProtocol']]],
+  ['set_5fauto_5freset_107',['set_auto_reset',['../classTimer.html#aa7551140058e81e350f8f3d0444ac392',1,'Timer']]],
+  ['set_5fcmd_5fvel_108',['set_cmd_vel',['../classMotorController.html#a9e5caf74d646e06a5c069dff9dcab332',1,'MotorController']]],
+  ['set_5finterval_109',['set_interval',['../classTimer.html#ab6018a37c40dcadc373cc85f8c507da6',1,'Timer']]],
+  ['set_5fmode_110',['set_mode',['../classMotorDriver.html#aa29e0ce7b70b0ec6ee63a4dc1dc6c2a9',1,'MotorDriver']]],
+  ['set_5foutput_5flimits_111',['set_output_limits',['../classPID.html#ac36a868cb66af347dccd8e71cf1586d0',1,'PID::set_output_limits(output_limits_t output_limits)'],['../classPID.html#a122d9c78096d060c44a66da0cc26ab86',1,'PID::set_output_limits(float min_output, float max_output)']]],
+  ['set_5fpid_5fgains_112',['set_pid_gains',['../classPID.html#a0cd83247fa31f073fb05b137e58a462a',1,'PID::set_pid_gains(pid_gains_t pid_gains)'],['../classPID.html#a28e8bffa95d7891943a439bb324845ea',1,'PID::set_pid_gains(float kp, float ki, float kd)']]],
+  ['set_5fpwm_113',['set_pwm',['../classMotorDriver.html#a91e81ae85c35a5e1035909e5ccec95cf',1,'MotorDriver']]],
+  ['set_5freverse_114',['set_reverse',['../classEncoder.html#a872432557e6a7f10f386562133d66345',1,'Encoder']]],
+  ['set_5fsetpoint_115',['set_setpoint',['../classPID.html#aa38ec1b5f0345ed89f5a05ce699d9282',1,'PID']]],
+  ['set_5fvelocity_116',['set_velocity',['../classMotorDriver.html#a27b02e38a09056bbcd00a8fd803dad11',1,'MotorDriver']]],
+  ['start_117',['start',['../classTimer.html#a3a8b5272198d029779dc9302a54305a8',1,'Timer']]],
+  ['stop_118',['stop',['../classMotorController.html#a317ce58ea93ea1329de5b87391560082',1,'MotorController::stop()'],['../classTimer.html#a63f0eb44b27402196590a03781515dba',1,'Timer::stop()']]]
 ];
