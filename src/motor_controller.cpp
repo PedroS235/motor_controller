@@ -56,6 +56,12 @@ void MotorController::stop() {
     cmd_vel_.w = 0.0;
 }
 
+void MotorController::reset_pose() {
+    pose_ = {0.0, 0.0, 0.0};
+    left_motor_->reset();
+    right_motor_->reset();
+}
+
 void MotorController::compute_wheel_speeds_() {
     float v_r = (2 * cmd_vel_.x + cmd_vel_.w * dist_between_wheels_) /
                 (2 * right_motor_->get_wheel_radius());
