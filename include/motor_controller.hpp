@@ -7,6 +7,8 @@
 #include "motor_driver.hpp"
 #include "timer.hpp"
 
+// TODO: Add methods to update motor PID values.
+
 /**
  * @struct Pose
  * @brief Represents the pose of a differential drive robot with x, y, and theta
@@ -97,8 +99,26 @@ class MotorController {
      */
     void stop();
 
+    /**
+     * @brief Moves the motors in open-loop mode.
+     *
+     * @param left_pwm The PWM value for the left motor.
+     * @param right_pwm The PWM value for the right motor.
+     */
     void move_open_loop(uint8_t left_pwm, uint8_t right_pwm);
+
+    /**
+     * @brief Get the current status of the motors.
+     *
+     * @param left_motor The status of the left motor.
+     * @param right_motor The status of the right motor.
+     */
     void get_motor_status(MotorData &left_motor, MotorData &right_motor);
+
+    /**
+     * @brief Reset the robot's pose to (0, 0, 0).
+     */
+    void reset_pose();
 
    private:
     /**
