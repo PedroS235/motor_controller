@@ -5,6 +5,7 @@
 
 #include "motor_controller.hpp"
 
+// TODO: Add flags to update PID values
 /**
  * @enum Flags
  * @brief Enumeration of recognized serial command flags.
@@ -14,6 +15,7 @@ typedef enum {
     FLAG_OPEN = 'o',         /**< Flag for open-loop mode */
     FLAG_POSE = 'q',         /**< Flag to request robot's pose (odometry) */
     FLAG_MOTOR_STATUS = 'm', /**< Flag to request motor status */
+    FLAG_RESET = 'r',        /**< Flag to reset the robot's pose*/
 } Flags;
 
 /**

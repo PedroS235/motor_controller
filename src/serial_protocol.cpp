@@ -65,6 +65,10 @@ int SerialProtocol::parse_cmd_(const String& cmd) {
 
             return 1;  // Success and returned pose
             break;
+        case FLAG_RESET:
+            motorController_->reset_pose();
+            return 0;  // Success
+            break;
 
         default:
             return -1;  // Error: Invalid command
