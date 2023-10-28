@@ -116,10 +116,11 @@ the moment, these are the available commands:
 ## Doxygen Documentation
 
 The project includes Doxygen documentation, which can be found in the `./doxygen/doxygen_generated/html` directory.
-To view the documentation, you can start a Python server as follows:
+To view the documentation, you need to install doxygen using `sudo apt install doxygen` (for Debian based systems),
+and then start a Python server as follows:
 
 ```bash
-$ cd doxygen/generated_doxygen/html && python -m http.server
+$ cd doxygen && doxygen && cd doxygen_generated/html && python3 -m http.server
 ```
 
 Then, open your web browser and navigate to http://localhost:8000 to access the Doxygen documentation.
