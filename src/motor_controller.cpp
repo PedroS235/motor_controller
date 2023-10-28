@@ -91,3 +91,13 @@ void MotorController::print_pose() {
     Serial.print(", ");
     Serial.println(pose_.theta);
 }
+
+void MotorController::move_open_loop(uint8_t left_pwm, uint8_t right_pwm) {
+    left_motor_->set_pwm(left_pwm);
+    right_motor_->set_pwm(right_pwm);
+}
+
+void MotorController::get_motor_status(MotorData &left_motor, MotorData &right_motor) {
+    left_motor_->get_motor_data(left_motor);
+    right_motor_->get_motor_data(right_motor);
+}

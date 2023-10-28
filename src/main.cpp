@@ -3,6 +3,7 @@
 #include "configuration.hpp"
 #include "motor_controller.hpp"
 #include "motor_driver.hpp"
+#include "serial_protocol.hpp"
 #include "timer.hpp"
 
 Encoder left_motor_encoder(GPIO_MOTOR_LEFT_ENCODER_A, GPIO_MOTOR_LEFT_ENCODER_B, true);
@@ -22,6 +23,7 @@ MotorDriver right_motor(GPIO_MOTOR_RIGHT_EN,
                         ENCODER_TICKS_PER_REVOLUTION);
 
 MotorController motor_controller(&left_motor, &right_motor, DIST_BETWEEN_WHEELS);
+SerialProtocol serial_protocol(&motor_controller);
 
 void left_motor_encoder_ISR(void) { left_motor_encoder.tick_isr(); };
 void right_motor_encoder_ISR(void) { right_motor_encoder.tick_isr(); };
@@ -42,9 +44,8 @@ CmdVel cmd_vel = {0.3, 1.0};
  */
 void setup(void) {
     Serial.begin(9600);
-    Serial.println("Start");
     setup_interrupts();
-    motor_controller.set_cmd_vel(cmd_vel);
+    /* motor_controller.set_cmd_vel(cmd_vel); */
 }
 
 /**
@@ -52,5 +53,5 @@ void setup(void) {
  */
 void loop(void) {
     motor_controller.run();
-    motor_controller.print_pose();
+    serial_protocol.read_serial();
 }
