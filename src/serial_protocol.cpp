@@ -34,7 +34,7 @@ int SerialProtocol::parse_cmd_(const String& cmd) {
         case FLAG_POSE:
             Pose pose;
             motorController_->get_pose(pose);
-            Serial.println("x " + String(pose.x) + " y " + String(pose.y) + " theta " +
+            Serial.println(String(pose.x) + " " + String(pose.y) + " " +
                            String(pose.theta));
             return 1;  // Success and returned pose
             break;
