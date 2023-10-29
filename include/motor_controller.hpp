@@ -136,6 +136,8 @@ class MotorController {
     Pose pose_;                  ///< The current pose of the robot.
     CmdVel cmd_vel_;             ///< The commanded velocity for the robot.
     float dist_between_wheels_;  ///< The distance between the robot's two wheels.
+    float prev_left_dist_;       ///< The previous distance travelled by the left wheel.
+    float prev_right_dist_;  ///< The previous distance travelled by the right wheel.
 
    private:
     MotorDriver *left_motor_;   ///< Pointer to the left motor driver.

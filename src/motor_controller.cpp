@@ -81,12 +81,21 @@ void MotorController::compute_pose_() {
     MotorData right_motor_data;
     left_motor_->get_motor_data(left_motor_data);
     right_motor_->get_motor_data(right_motor_data);
-    float d_c = (left_motor_data.distance + right_motor_data.distance) / 2.0;
 
-    pose_.x = d_c * cos(pose_.theta);
-    pose_.y = d_c * sin(pose_.theta);
-    pose_.theta =
-        (right_motor_data.distance - left_motor_data.distance) / dist_between_wheels_;
+    float d_l = left_motor_data.distance - prev_left_dist_;
+    float d_r = right_motor_data.distance - prev_right_dist_;
+    float d_c = (d_l + d_r) / 2.0;
+    float d_theta = (d_r - d_l) / dist_between_wheels_;
+
+    // Update the pose
+    pose_.x += d_c * cos(pose_.theta);
+    pose_.y += d_c * sin(pose_.theta);
+    pose_.theta += d_theta;
+    if (pose_.theta > PI) pose_.theta -= 2 * PI;
+    if (pose_.theta < -PI) pose_.theta += 2 * PI;
+
+    prev_left_dist_ = left_motor_data.distance;
+    prev_right_dist_ = right_motor_data.distance;
 }
 
 void MotorController::print_pose() {
