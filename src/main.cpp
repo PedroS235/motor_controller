@@ -4,7 +4,6 @@
 #include "motor_controller.hpp"
 #include "motor_driver.hpp"
 #include "serial_protocol.hpp"
-#include "timer.hpp"
 
 Encoder left_motor_encoder(GPIO_MOTOR_LEFT_ENCODER_A, GPIO_MOTOR_LEFT_ENCODER_B, true);
 Encoder right_motor_encoder(GPIO_MOTOR_RIGHT_ENCODER_A, GPIO_MOTOR_RIGHT_ENCODER_B);

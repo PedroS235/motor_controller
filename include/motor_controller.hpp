@@ -5,7 +5,7 @@
 
 #include "configuration.hpp"
 #include "motor_driver.hpp"
-#include "timer.hpp"
+#include "timer_api.hpp"
 
 // TODO: Add methods to update motor PID values.
 
@@ -140,9 +140,9 @@ class MotorController {
     float prev_right_dist_;  ///< The previous distance travelled by the right wheel.
 
    private:
-    MotorDriver *left_motor_;   ///< Pointer to the left motor driver.
-    MotorDriver *right_motor_;  ///< Pointer to the right motor driver.
-    Timer motor_update_timer_;  ///< Timer for motor control updates.
+    MotorDriver *left_motor_;      ///< Pointer to the left motor driver.
+    MotorDriver *right_motor_;     ///< Pointer to the right motor driver.
+    TimerAPI motor_update_timer_;  ///< Timer for motor control updates.
 };
 
 #endif  // MOTOR_CONTROLLER_HPP
