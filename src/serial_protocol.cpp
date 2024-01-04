@@ -70,6 +70,32 @@ int SerialProtocol::parse_cmd_(const String& cmd) {
             return 0;  // Success
             break;
 
+        case FLAG_PID_GAINS: {
+            int kp = 0, ki = 0, kd = 0;
+            if (sscanf(cmd.c_str(), "p %d %d %d", &kp, &ki, &kd) == 3) {
+                pid_gains_t pid_gains;
+                pid_gains.kp = kp;
+                pid_gains.ki = ki;
+                pid_gains.kd = kd;
+                motorController_->update_motor_pids(pid_gains);
+                return 0;  // Success
+            } else {
+                return -1;  // Error: Invalid command
+            }
+            break;
+        }
+
+        case FLAG_PID_GET: {
+            auto pid_gains = motorController_->get_motor_pids();
+            Serial.print(pid_gains.kp);
+            Serial.print(" ");
+            Serial.print(pid_gains.ki);
+            Serial.print(" ");
+            Serial.print(pid_gains.kd);
+            return 1;  // Success and return pid gains
+            break;
+        }
+
         default:
             return -1;  // Error: Invalid command
             break;

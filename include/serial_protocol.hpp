@@ -16,6 +16,8 @@ typedef enum {
     FLAG_POSE = 'q',         /**< Flag to request robot's pose (odometry) */
     FLAG_MOTOR_STATUS = 'm', /**< Flag to request motor status */
     FLAG_RESET = 'r',        /**< Flag to reset the robot's pose*/
+    FLAG_PID_GAINS = 'p',    /**< Flag to update PID gains */
+    FLAG_PID_GET = 'g'       /**< Flag to request PID gains */
 } Flags;
 
 /**

@@ -17,7 +17,9 @@ def main():
             print("2. Send open-loop mode command")
             print("3. Request robot's odometry/pose")
             print("4. Request motor status")
-            print("5. Exit")
+            print("5. Change PID values")
+            print("6. Rquest PID values")
+            print("7. Exit")
 
             choice = input("Enter your choice: ")
 
@@ -36,6 +38,13 @@ def main():
             elif choice == "4":
                 ser.write(b"m\n")
             elif choice == "5":
+                kp = input("Enter kp: ")
+                ki = input("Enter ki: ")
+                kd = input("Enter kd: ")
+                command = f"p {kp} {ki} {kd}\n"
+            elif choice == "6":
+                ser.write(b"g\n")
+            elif choice == "7":
                 print("Exiting...")
                 break
             else:
