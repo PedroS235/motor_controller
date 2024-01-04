@@ -127,6 +127,20 @@ class MotorDriver {
      */
     uint16_t get_ticks_per_rev();
 
+    /**
+     * @brief Update the PID gains used for closed-loop
+     *
+     * @param pid_gains The PID gains to be overwritten
+     */
+    void update_motor_pid(pid_gains_t pid_gains);
+
+    /**
+     * @brief Retrieve current PID gains
+     *
+     * @return pid_gains_t The current PID gains
+     */
+    pid_gains_t get_motor_pid();
+
    private:
     /**
      * @brief Send the PWM signal to control the motor (L298N Driver).
@@ -182,20 +196,6 @@ class MotorDriver {
      * angle, and RPM.
      */
     void compute_motor_data_(void);
-
-    /**
-     * @brief Update the PID gains used for closed-loop
-     *
-     * @param pid_gains The PID gains to be overwritten
-     */
-    void update_motor_pid(pid_gains_t pid_gains);
-
-    /**
-     * @brief Retrieve current PID gains
-     *
-     * @return pid_gains_t The current PID gains
-     */
-    pid_gains_t get_motor_pid();
 
    private:
     // Pins
