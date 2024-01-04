@@ -1,7 +1,7 @@
 #ifndef CONFIGURATION_HPP
 #define CONFIGURATION_HPP
 
-#define VERSION "1.2.5"
+#define VERSION "1.2.6"
 
 // -----------------------------------------------------------------------------
 // ---------------------------| Motor GPIO Pins |-------------------------------
@@ -31,9 +31,9 @@
 #define DIST_BETWEEN_WHEELS 0.20  // Distance between wheels in meters
 
 // PID gains
-#define MOTOR_DRIVER_PID_KP 500
-#define MOTOR_DRIVER_PID_KI 100.0
-#define MOTOR_DRIVER_PID_KD 100.0
+#define MOTOR_DRIVER_PID_KP 200.0
+#define MOTOR_DRIVER_PID_KI 70.0
+#define MOTOR_DRIVER_PID_KD 30.0
 
 #define MOTOR_RUN_FREQUENCY 20  // Motor run frequency (in Hz)
 
