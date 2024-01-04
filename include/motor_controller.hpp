@@ -120,6 +120,20 @@ class MotorController {
      */
     void reset_pose();
 
+    /**
+     * @brief Update the PID gains for the motors.
+     *
+     * @param pid_gains The new PID gains.
+     */
+    void update_motor_pids(pid_gains_t pid_gains);
+
+    /**
+     * @brief Get the current PID gains for the motors.
+     *
+     * @return The current PID gains of the motors.
+     */
+    pid_gains_t get_motor_pids();
+
    private:
     /**
      * @brief Compute and update the robot's pose based on wheel travelled distances.

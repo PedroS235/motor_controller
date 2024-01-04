@@ -116,3 +116,10 @@ void MotorController::get_motor_status(MotorData &left_motor, MotorData &right_m
     left_motor_->get_motor_data(left_motor);
     right_motor_->get_motor_data(right_motor);
 }
+
+void MotorController::update_motor_pids(pid_gains_t pid_gains) {
+    left_motor_->update_motor_pid(pid_gains);
+    right_motor_->update_motor_pid(pid_gains);
+}
+
+pid_gains_t MotorController::get_motor_pids() { return left_motor_->get_motor_pid(); }
