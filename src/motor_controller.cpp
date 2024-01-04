@@ -15,7 +15,10 @@ MotorController::MotorController(MotorDriver *left_motor,
     cmd_vel_ = {0.0, 0.0};
 }
 
-void MotorController::set_cmd_vel(CmdVel cmd_vel) { cmd_vel_ = cmd_vel; }
+void MotorController::set_cmd_vel(CmdVel cmd_vel) { 
+    cmd_vel_ = cmd_vel; 
+    compute_wheel_speeds_();
+}
 
 void MotorController::get_pose(Pose &pose) { pose = pose_; }
 
@@ -29,7 +32,6 @@ void MotorController::reset() {
 void MotorController::run() {
     if (motor_update_timer_.has_elapsed()) {
         compute_pose_();
-        compute_wheel_speeds_();
         left_motor_->run();
         right_motor_->run();
     }
