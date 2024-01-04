@@ -6,8 +6,6 @@
 #include "encoder.hpp"
 #include "pid.hpp"
 
-// TODO: Add method to update motor PID values.
-
 /**
  * @struct MotorData
  * @brief Structure to store motor-related data such as velocity, angular velocity,
@@ -184,6 +182,20 @@ class MotorDriver {
      * angle, and RPM.
      */
     void compute_motor_data_(void);
+
+    /**
+     * @brief Update the PID gains used for closed-loop
+     *
+     * @param pid_gains The PID gains to be overwritten
+     */
+    void update_motor_pid(pid_gains_t pid_gains);
+
+    /**
+     * @brief Retrieve current PID gains
+     *
+     * @return pid_gains_t The current PID gains
+     */
+    pid_gains_t get_motor_pid();
 
    private:
     // Pins

@@ -114,6 +114,12 @@ float MotorDriver::get_wheel_radius() { return wheel_radius_; }
 
 uint16_t MotorDriver::get_ticks_per_rev() { return ticks_per_rev_; }
 
+void MotorDriver::update_motor_pid(pid_gains_t pid_gains) {
+    pid_.set_pid_gains(pid_gains);
+}
+
+pid_gains_t MotorDriver::get_motor_pid() { return pid_.get_pid_gains(); }
+
 void MotorDriver::send_pwm() { analogWrite(pin_en_, pwm_); }
 
 void MotorDriver::run() {
